@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Group extends Model
 {
     use HasFactory;
-
+    protected $guarded = ['id'];
+    
     public function student(){
         return $this->belongsTo(User::class);
     }

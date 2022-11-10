@@ -18,9 +18,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nama_lengkap',
         'email',
         'password',
+        'nisn',
+        'nis',
+        'status',
+        'jenis_kelamin',
+        'tahun_ajar',
     ];
 
     /**
@@ -30,7 +35,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     /**
@@ -38,7 +42,27 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function ayah(){
+        return $this->hasOne(Dad::class);
+    }
+
+    public function ibu(){
+        return $this->hasOne(Mom::class);
+    }
+
+    public function biodata(){
+        return $this->hasOne(Student::class);
+    }
+
+    public function wali(){
+        return $this->hasOne(Guardian::class);
+    }
+
+    public function kelas(){
+        return $this->hasOne(Group::class);
+    }
+
+    public function mutasi(){
+        return $this->hasOne(Mutation::class);
+    }
 }

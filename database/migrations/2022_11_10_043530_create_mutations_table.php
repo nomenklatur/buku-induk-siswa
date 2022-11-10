@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGroupsTable extends Migration
+class CreateMutationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('mutations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('nama');
+            $table->string('pindah_ke')->nullable();
+            $table->string('alasan')->nullable();
+            $table->string('nomor_ijazah');
+            $table->string('tanggal_ijazah');
+            $table->string('pindah_dari');
+            $table->string('alasan_dari');
         });
     }
 
@@ -27,6 +32,6 @@ class CreateGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('mutations');
     }
 }

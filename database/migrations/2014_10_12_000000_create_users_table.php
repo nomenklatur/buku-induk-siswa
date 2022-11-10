@@ -22,6 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('status');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('jenis_kelamin');
+            $table->string('tahun_ajar');
+            $table->timestamps();
         });
     }
 

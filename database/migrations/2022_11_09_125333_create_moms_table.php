@@ -15,7 +15,18 @@ class CreateMomsTable extends Migration
     {
         Schema::create('moms', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('user_id');
+            $table->string('nama');
+            $table->string('tempat_lahir');
+            $table->string('tanggal_lahir');
+            $table->string('agama');
+            $table->string('kewarganegaraan');
+            $table->string('pekerjaan');
+            $table->string('pendidikan');
+            $table->string('penghasilan');
+            $table->string('alamat');
+            $table->string('nomor_hp');
+            $table->string('status');
         });
     }
 
