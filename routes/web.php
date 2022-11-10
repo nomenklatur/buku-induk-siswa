@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Authorization;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Login Functions
+Route::get('/', [Authorization::class, 'index']);
 
-Route::get('/', function () {
-    return view('dashboard/dashboard');
+
+Route::get('/dashboard', function () {
+    return view('dashboard/admin_dashboard');
 });
