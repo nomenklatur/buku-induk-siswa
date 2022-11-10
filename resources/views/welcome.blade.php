@@ -11,6 +11,12 @@
 </head>
 <body>
   <section class="vh-100">
+    @if (session()->has('auth_error'))
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle me-2"></i>{{ session('auth_error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
     <div class="container-fluid h-custom">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-md-9 col-lg-6 col-xl-5">
@@ -18,6 +24,7 @@
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
           <form action="/" method="POST">
+            @csrf
             <div class="text-center">
               <h1 class="fw-bold">Selamat Datang</h1>
               <p class="lead fw-normal mb-0 me-3">Aplikasi Buku Induk Siswa</p>

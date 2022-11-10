@@ -14,8 +14,9 @@ use App\Http\Controllers\Authorization;
 */
 // Login Functions
 Route::get('/', [Authorization::class, 'index']);
+Route::post('/', [Authorization::class, 'auth']);
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard/admin_dashboard');
+    return view('dashboard/siswa');
 });

@@ -14,9 +14,13 @@
 <body>
   <div class="konten">
     {{-- Sidebar --}}
-    @include('layouts.sidebar')
+    @if (auth()->user()->status === 'admin')
+        @include('layouts.admin_sidebar')
+    @else
+        @include('layouts.siswa_sidebar')
+    @endif
     {{-- Contents --}}
-    <div class="container" style="background-color: pink; height: 1080px" id="konten">
+    <div class="container" id="konten">
       ini konten
     </div>
   </div>
