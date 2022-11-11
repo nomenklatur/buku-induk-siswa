@@ -15,8 +15,11 @@ use App\Http\Controllers\Authorization;
 // Login Functions
 Route::get('/', [Authorization::class, 'index']);
 Route::post('/', [Authorization::class, 'auth']);
+Route::post('/keluar', [Authorization::class, 'logout']);
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard/siswa');
+    return view('dashboard/siswa',[
+        'title' => 'Beranda',
+    ]);
 });

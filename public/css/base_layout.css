@@ -1,5 +1,7 @@
 .konten {
-  background-color: green;
+  background-image: url('/images/background-reduced.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100%;
   display: flex;
 }

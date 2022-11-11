@@ -16,13 +16,17 @@ class Authorization extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-
         if (Auth::attempt($credentials)){
-            
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         };
-
         return back()->with('auth_error', 'Username atau Password anda salah');
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }
