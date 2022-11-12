@@ -12,7 +12,7 @@
 <body>
   <section class="vh-100">
     @if (session()->has('auth_error'))
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <div class="alert alert-danger alert-dismissible fade show position-absolute w-100" role="alert">
         <i class="bi bi-check-circle me-2"></i>{{ session('auth_error') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>

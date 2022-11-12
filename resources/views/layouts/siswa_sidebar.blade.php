@@ -6,27 +6,27 @@
   <hr>
   <ul class="nav nav-pills flex-column mb-auto fs-5">
     <li class="nav-item">
-      <a href="#" class="nav-link link-dark active">
+      <a href="/dashboard" class="nav-link link-dark @if($title === 'Beranda') active @endif">
         <i class="bi bi-house-door me-2"></i>Beranda
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link link-dark">
+      <a href="/biodata" class="nav-link link-dark @if($title === 'Biodata Siswa') active @endif">
         <i class="bi bi-card-checklist me-2"></i>Biodata Siswa
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link link-dark">
+      <a href="/data-ibu" class="nav-link link-dark @if($title === 'Data Ibu Siswa') active @endif">
         <i class="bi bi-gender-female me-2"></i>Data Ibu Siswa
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link link-dark">
+      <a href="/data-ayah" class="nav-link link-dark @if($title === 'Data Ayah Siswa') active @endif">
         <i class="bi bi-gender-male me-2"></i>Data Ayah Siswa
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link link-dark">
+      <a href="/data-wali" class="nav-link link-dark @if($title === 'Data Wali Siswa') active @endif">
         <i class="bi bi-person me-2"></i>Data Wali Siswa
       </a>
     </li>
@@ -38,11 +38,14 @@
       <strong>{{auth()->user()->nama_lengkap}}</strong>
     </a>
     <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-      <li><a class="dropdown-item" href="#">New project...</a></li>
-      <li><a class="dropdown-item" href="#">Settings</a></li>
-      <li><a class="dropdown-item" href="#">Profile</a></li>
+      <li><a class="dropdown-item" href="#">Ganti Password</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Sign out</a></li>
+      <li>
+        <form action="/keluar" method="POST">
+          @csrf
+          <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right me-1"></i>Keluar</button>
+        </form>
+      </li>
     </ul>
   </div>
 </div>

@@ -16,25 +16,25 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('alamat');
-            $table->string('kota');
-            $table->string('kecamatan');
-            $table->string('tempat_lahir');
-            $table->string('tanggal_lahir');
-            $table->integer('anak_ke');
-            $table->integer('jlh_saudara');
-            $table->integer('saudara_tiri');
-            $table->integer('saudara_angkat');
-            $table->string('bahasa');
-            $table->string('agama');
-            $table->integer('jarak');
+            $table->string('alamat')->nullable();
+            $table->string('kota')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->string('tanggal_lahir')->nullable();
+            $table->integer('anak_ke')->nullable();
+            $table->integer('jlh_saudara')->nullable();
+            $table->integer('saudara_tiri')->nullable();
+            $table->integer('saudara_angkat')->nullable();
+            $table->string('bahasa')->nullable();
+            $table->string('agama')->nullable();
+            $table->integer('jarak')->nullable();
             $table->string('nomor_hp')->nullable();
-            $table->string('goldar');
-            $table->integer('tinggi');
-            $table->integer('berat');
-            $table->string('penyakit');
-            $table->string('hobi');
-            $table->string('kewarganegaraan');
+            $table->string('goldar')->nullable();
+            $table->integer('tinggi')->nullable();
+            $table->integer('berat')->nullable();
+            $table->string('penyakit')->nullable();
+            $table->string('hobi')->nullable();
+            $table->string('kewarganegaraan')->nullable();
         });
     }
 

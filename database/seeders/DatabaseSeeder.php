@@ -39,5 +39,21 @@ class DatabaseSeeder extends Seeder
             'jenis_kelamin' => 'L',
             'tahun_ajar' => 'n',
         ]);
+
+        DB::table('students')->insert([
+            'user_id' => 2,
+        ]);
+
+        DB::table('dads')->insert([
+            'user_id' => 2,
+        ]);
+
+        DB::table('moms')->insert([
+            'user_id' => 2,
+        ]);
+
+        DB::table('guardians')->insert([
+            'user_id' => 2,
+        ]);
     }
 }

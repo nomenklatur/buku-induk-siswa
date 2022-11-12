@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Authorization;
+use App\Http\Controllers\SiswaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,13 +14,13 @@ use App\Http\Controllers\Authorization;
 |
 */
 // Login Functions
-Route::get('/', [Authorization::class, 'index']);
+Route::get('/', [Authorization::class, 'index'])->name('login')->middleware('guest');
 Route::post('/', [Authorization::class, 'auth']);
 Route::post('/keluar', [Authorization::class, 'logout']);
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard/siswa',[
-        'title' => 'Beranda',
-    ]);
-});
+// Students Exclusive Routes
+Route::get('/dashboard', [SiswaController::class, 'index'])->middleware('auth');
+Route::get('/biodata', [SiswaController::class, 'show_bio'])->middleware('auth');
+Route::get('/data-ayah', [SiswaController::class, 'show_ibu'])->middleware('auth');
+Route::get('/data-ibu', [SiswaController::class, 'show_mom'])->middleware('auth');
+Route::get('/data-wali', [SiswaController::class, 'show_guardian'])->middleware('auth');
