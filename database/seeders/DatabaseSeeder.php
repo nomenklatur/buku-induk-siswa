@@ -42,18 +42,22 @@ class DatabaseSeeder extends Seeder
 
         DB::table('students')->insert([
             'user_id' => 2,
+            'uri' => Str::random(50)
         ]);
 
         DB::table('dads')->insert([
             'user_id' => 2,
+            'uri' => Str::random(50)
         ]);
 
         DB::table('moms')->insert([
             'user_id' => 2,
+            'uri' => Str::random(50)
         ]);
 
         DB::table('guardians')->insert([
             'user_id' => 2,
+            'uri' => Str::random(50)
         ]);
     }
 }

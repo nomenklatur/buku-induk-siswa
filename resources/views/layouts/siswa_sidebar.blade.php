@@ -11,22 +11,22 @@
       </a>
     </li>
     <li>
-      <a href="/biodata" class="nav-link link-dark @if($title === 'Biodata Siswa') active @endif">
+      <a href="/biodata/{{auth()->user()->biodata->uri}}/edit" class="nav-link link-dark @if($title === 'Biodata Siswa') active @endif">
         <i class="bi bi-card-checklist me-2"></i>Biodata Siswa
       </a>
     </li>
     <li>
-      <a href="/data-ibu" class="nav-link link-dark @if($title === 'Data Ibu Siswa') active @endif">
+      <a href="/data-ibu/{{auth()->user()->ibu->uri}}/edit" class="nav-link link-dark @if($title === 'Data Ibu Siswa') active @endif">
         <i class="bi bi-gender-female me-2"></i>Data Ibu Siswa
       </a>
     </li>
     <li>
-      <a href="/data-ayah" class="nav-link link-dark @if($title === 'Data Ayah Siswa') active @endif">
+      <a href="/data-ayah/{{auth()->user()->ayah->uri}}/edit" class="nav-link link-dark @if($title === 'Data Ayah Siswa') active @endif">
         <i class="bi bi-gender-male me-2"></i>Data Ayah Siswa
       </a>
     </li>
     <li>
-      <a href="/data-wali" class="nav-link link-dark @if($title === 'Data Wali Siswa') active @endif">
+      <a href="/data-wali/{{auth()->user()->wali->uri}}/edit" class="nav-link link-dark @if($title === 'Data Wali Siswa') active @endif">
         <i class="bi bi-person me-2"></i>Data Wali Siswa
       </a>
     </li>
