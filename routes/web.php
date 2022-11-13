@@ -1,9 +1,9 @@
 <?php
-
+use App\Models\Student;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Authorization;
 use App\Http\Controllers\SiswaController;
-use App\Http\Controllers\ControllerBiodata;
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,5 +22,5 @@ Route::post('/keluar', [Authorization::class, 'logout']);
 // Students Exclusive Routes
 Route::get('/dashboard', [SiswaController::class, 'index'])->middleware('auth');
 
-Route::resource('biodata', ControllerBiodata::class)->middleware('auth'); //Routes to manage Students Biodata
+Route::resource('students', StudentController::class);
 

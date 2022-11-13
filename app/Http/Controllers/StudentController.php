@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
-class ControllerBiodata extends Controller
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -57,7 +57,7 @@ class ControllerBiodata extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        $student->dd();
     }
 
     /**
