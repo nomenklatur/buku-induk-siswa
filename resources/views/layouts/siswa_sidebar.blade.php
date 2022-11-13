@@ -11,7 +11,7 @@
       </a>
     </li>
     <li>
-      <a href="/students/bJyssMDCbVBXLSnuySL1IdXAOArhfNgcAu3rUn1uuHvBEQ7Ddg/edit" class="nav-link link-dark @if($title === 'Biodata Siswa') active @endif">
+      <a href="/students/{{auth()->user()->biodata->uri}}/edit" class="nav-link link-dark @if($title === 'Biodata Siswa') active @endif">
         <i class="bi bi-card-checklist me-2"></i>Biodata Siswa
       </a>
     </li>

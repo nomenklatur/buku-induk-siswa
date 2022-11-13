@@ -2,8 +2,7 @@
 use App\Models\Student;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Authorization;
-use App\Http\Controllers\SiswaController;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\Siswa;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,11 +15,10 @@ use App\Http\Controllers\StudentController;
 */
 // Login Functions
 Route::get('/', [Authorization::class, 'index'])->name('login')->middleware('guest');
-Route::post('/', [Authorization::class, 'auth']);
+Route::post('/', [Authorization::class, 'auth'])->middleware('guest');
+Route::get('/masuk', [Authorzation::class, 'adjust'])->middleware('auth');
 Route::post('/keluar', [Authorization::class, 'logout']);
 
 // Students Exclusive Routes
-Route::get('/dashboard', [SiswaController::class, 'index'])->middleware('auth');
-
-Route::resource('students', StudentController::class);
+Route::get('/dashboard', [Siswa::class, 'index'])->middleware('auth');
 

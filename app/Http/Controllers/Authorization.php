@@ -29,4 +29,11 @@ class Authorization extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
+
+    public function adjust(){
+        if(user()->status == 'admin'){
+            return redirect()->intended('/dashboard');
+        }
+        return redirect()->intended('/home');
+    }
 }
