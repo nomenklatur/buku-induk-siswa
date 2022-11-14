@@ -27,6 +27,7 @@ class CreateGuardiansTable extends Migration
             $table->string('penghasilan')->nullable();
             $table->string('alamat')->nullable();
             $table->string('nomor_hp')->nullable();
+            $table->timestamps();
         });
     }
 

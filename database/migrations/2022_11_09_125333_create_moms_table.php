@@ -28,6 +28,7 @@ class CreateMomsTable extends Migration
             $table->string('alamat')->nullable();
             $table->string('nomor_hp')->nullable();
             $table->string('status')->nullable();
+            $table->timestamps();
         });
     }
 

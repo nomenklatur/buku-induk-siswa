@@ -16,24 +16,24 @@
       </a>
     </li>
     <li>
-      <a href="/data-ibu/{{auth()->user()->ibu->uri}}/edit" class="nav-link link-dark @if($title === 'Data Ibu Siswa') active @endif">
+      <a href="/data-ibu/{{auth()->user()->ibu->uri}}" class="nav-link link-dark @if($title === 'Data Ibu Siswa') active @endif">
         <i class="bi bi-gender-female me-2"></i>Data Ibu Siswa
       </a>
     </li>
     <li>
-      <a href="/data-ayah/{{auth()->user()->ayah->uri}}/edit" class="nav-link link-dark @if($title === 'Data Ayah Siswa') active @endif">
+      <a href="/data-ayah/{{auth()->user()->ayah->uri}}" class="nav-link link-dark @if($title === 'Data Ayah Siswa') active @endif">
         <i class="bi bi-gender-male me-2"></i>Data Ayah Siswa
       </a>
     </li>
     <li>
-      <a href="/data-wali/{{auth()->user()->wali->uri}}/edit" class="nav-link link-dark @if($title === 'Data Wali Siswa') active @endif">
+      <a href="/data-wali/{{auth()->user()->wali->uri}}" class="nav-link link-dark @if($title === 'Data Wali Siswa') active @endif">
         <i class="bi bi-person me-2"></i>Data Wali Siswa
       </a>
     </li>
   </ul>
   <div class="dropdown fixed-bottom" style="bottom: 20px; left: 30px">
     <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+      <img src="@if (auth()->user()->foto === NULL) @if(auth()->user()->jenis_kelamin === 'L') /images/male.png @else /images/female.png @endif @else {{asset('storage/'.auth()->user()->foto)}}  @endif" alt="" width="32" height="32" class="rounded-circle me-2">
       <strong>{{auth()->user()->nama_lengkap}}</strong>
     </a>
     <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">

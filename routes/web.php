@@ -23,4 +23,9 @@ Route::post('/keluar', [Authorization::class, 'logout']);
 Route::get('/home', [Siswa::class, 'index'])->middleware('auth');
 Route::get('/biodata/{student}', [Siswa::class, 'bio_form'])->middleware('auth');
 Route::put('/biodata/{student}', [Siswa::class, 'edit_bio'])->middleware('auth');
-
+Route::get('/data-ayah/{dad}', [Siswa::class, 'dad_form'])->middleware('auth');
+Route::put('/data-ayah/{dad}', [Siswa::class, 'edit_dad'])->middleware('auth');
+Route::get('/data-ibu/{mom}', [Siswa::class, 'mom_form'])->middleware('auth');
+Route::put('/data-ibu/{mom}', [Siswa::class, 'edit_mom'])->middleware('auth');
+Route::get('/data-wali/{guardian}', [Siswa::class, 'guardian_form'])->middleware('auth');
+Route::put('/data-wali/{guardian}', [Siswa::class, 'edit_guardian'])->middleware('auth');

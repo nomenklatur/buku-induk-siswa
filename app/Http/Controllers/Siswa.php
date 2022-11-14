@@ -48,6 +48,13 @@ class Siswa extends Controller
         ]);
         
         Student::where('uri', $student->uri)->update($validated);
-        return redirect('/home');
+        return redirect('/home')->with('Updated', 'Biodata berhasil diperbarui!');
+    }
+
+    public function dad_form(Student $student){
+        return view('siswa.ayah', [
+            'title' => 'Data Ayah Siswa',
+            'res' => $student
+        ]);
     }
 }
