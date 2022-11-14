@@ -36,6 +36,7 @@ class CreateStudentsTable extends Migration
             $table->string('penyakit')->nullable();
             $table->string('hobi')->nullable();
             $table->string('kewarganegaraan')->nullable();
+            $table->timestamps();
         });
     }
 

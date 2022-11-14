@@ -4,14 +4,14 @@
     <span class="fs-4">Buku Induk Siswa</span>
   </a>
   <hr>
-  <ul class="nav nav-pills flex-column mb-auto fs-5">
+  <ul class="nav nav-pills flex-column mb-auto fs-5 sticky-top">
     <li class="nav-item">
-      <a href="/dashboard" class="nav-link link-dark @if($title === 'Beranda') active @endif">
+      <a href="/home" class="nav-link link-dark @if($title === 'Beranda') active @endif">
         <i class="bi bi-house-door me-2"></i>Beranda
       </a>
     </li>
     <li>
-      <a href="/students/{{auth()->user()->biodata->uri}}/edit" class="nav-link link-dark @if($title === 'Biodata Siswa') active @endif">
+      <a href="/biodata/{{auth()->user()->biodata->uri}}" class="nav-link link-dark @if($title === 'Biodata Siswa') active @endif">
         <i class="bi bi-card-checklist me-2"></i>Biodata Siswa
       </a>
     </li>
@@ -31,8 +31,7 @@
       </a>
     </li>
   </ul>
-  <hr>
-  <div class="dropdown">
+  <div class="dropdown fixed-bottom" style="bottom: 20px; left: 30px">
     <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
       <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
       <strong>{{auth()->user()->nama_lengkap}}</strong>

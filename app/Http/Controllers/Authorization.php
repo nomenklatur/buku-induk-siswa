@@ -18,7 +18,7 @@ class Authorization extends Controller
         ]);
         if (Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/home');
         };
         return back()->with('auth_error', 'Username atau Password anda salah');
     }
@@ -31,7 +31,7 @@ class Authorization extends Controller
     }
 
     public function adjust(){
-        if(user()->status == 'admin'){
+        if(auth()->user()->status == 'admin'){
             return redirect()->intended('/dashboard');
         }
         return redirect()->intended('/home');

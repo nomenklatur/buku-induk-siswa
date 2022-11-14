@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-    <div class="container card shadow mt-3">
+    <div class="container card shadow mt-3 mb-3">
       <div class="row justify-content-center p-3">
         <div class="col-lg-3">
           <img src="@if (auth()->user()->foto === NULL) @if(auth()->user()->jenis_kelamin === 'L') /images/male.png @else /images/female.png @endif @else {{asset('storage/'.auth()->user()->foto)}}  @endif" class="img-fluid rounded-start" alt="..." style="max-width: 220px">

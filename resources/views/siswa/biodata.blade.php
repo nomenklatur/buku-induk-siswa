@@ -4,8 +4,8 @@
     <div class="container mt-3 card shadow">
       <div class="row justify-content-center mb-3">
         <div class="col-lg-9">
-          <form action="/students/{{auth()->user()->biodata->uri}}" method="post">
-            @method('PUT')
+          <form action="/biodata/{{auth()->user()->biodata->uri}}" method="post">
+            @method('put')
             @csrf
             <div class="container">
               <!-- Tabs navs -->
@@ -60,36 +60,76 @@
                     <h3 class="text-uppercase text-center">{{$title}}</h3>
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Alamat</span>
-                        <input type="text" class="form-control" placeholder="Contoh : Jl. Kemuning No.7" name="alamat">
-                      </div>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text bg-light">Kecamatan</span>
-                        <input type="text" class="form-control" placeholder="Contoh : Sidorejo" name="kecamatan">
+                        <input type="text" class="form-control" placeholder="Contoh : Jl. Kemuning No.7" name="alamat" value="{{$res->alamat}}">
+                        @error('alamat')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Kota</span>
-                        <input type="text" class="form-control" placeholder="Contoh : Jakarta Raya" name="kota">
+                        <input type="text" class="form-control" placeholder="Contoh : Jakarta Utara" name="kota" value="{{$res->kota}}">
+                        @error('kota')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-light">Kecamatan</span>
+                        <input type="text" class="form-control" placeholder="Contoh : Sidorejo" name="kecamatan" value="{{$res->kecamatan}}">
+                        @error('kecamatan')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Tempat dan Tanggal Lahir</span>
-                        <input type="text" class="form-control" placeholder="Contoh: Jakarta Utara" name="tempat_lahir">
-                        <input type="date" class="form-control" name="tanggal_lahir">
+                        <input type="text" class="form-control" placeholder="Contoh: Jakarta Utara" name="tempat_lahir" value="{{$res->tempat_lahir}}">
+                        <input type="date" class="form-control" name="tanggal_lahir" value="{{$res->tanggal_lahir}}">
+                        @error('tanggal_lahir')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Anak ke</span>
-                        <input type="number" class="form-control" placeholder="Contoh : 1" name="anak_ke">
+                        <input type="number" class="form-control" placeholder="Contoh : 1" name="anak_ke" value="{{$res->anak_ke}}">
+                        @error('anak_ke')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Jumlah Saudara Kandung</span>
-                        <input type="number" class="form-control" placeholder="Contoh : 2" name="jlh_saudara">
+                        <input type="number" class="form-control" placeholder="Contoh : 2" name="jlh_saudara" value="{{$res->jlh_saudara}}">
+                        @error('jlh_saudara')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Jumlah Saudara Tiri</span>
-                        <input type="number" class="form-control" placeholder="Contoh : 2" name="saudara_tiri">
+                        <input type="number" class="form-control" placeholder="Contoh : 2" name="saudara_tiri" value="{{$res->saudara_tiri}}">
+                        @error('saudara_tiri')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Jumlah Saudara Angkat</span>
-                        <input type="number" class="form-control" placeholder="Contoh : 2" name="saudara_angkat">
+                        <input type="number" class="form-control" placeholder="Contoh : 2" name="saudara_angkat" value="{{$res->saudara_angkat}}">
+                        @error('saudara_angkat')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                     </div>
                     <div
@@ -101,17 +141,52 @@
                       <h3 class="text-uppercase text-center">{{$title}}</h3>
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Bahasa sehari-hari</span>
-                        <input type="text" class="form-control" placeholder="Contoh : Bahasa Indonesia" name="bahasa">
+                        <input type="text" class="form-control" placeholder="Contoh : Bahasa Indonesia" name="bahasa" value="{{$res->bahasa}}">
+                        @error('bahasa')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Agama</span>
-                        <select name="agama" id="" class="form-select">
-                          <option value="Islam" @if (auth()->user()->biodata->agama === 'Islam') selected @endif>Islam</option>
-                          <option value="Katholik"  @if (auth()->user()->biodata->agama === 'Katholik') selected @endif>Katholik</option>
-                          <option value="Protestan"  @if (auth()->user()->biodata->agama === 'Protestan') selected @endif>Protestan</option>
-                          <option value="Buddha"  @if (auth()->user()->biodata->agama === "Buddha") selected @endif>Buddha</option>
-                          <option value="Hindu"  @if (auth()->user()->biodata->agama === 'Hindu') selected @endif>Hindu</option>
+                        <select name="agama" class="form-select">
+                          <option value="Islam" @if ($res->agama === 'Islam') selected @endif>Islam</option>
+                          <option value="Katholik"  @if ($res->agama === 'Katholik') selected @endif>Katholik</option>
+                          <option value="Protestan"  @if ($res->agama === 'Protestan') selected @endif>Protestan</option>
+                          <option value="Buddha"  @if ($res->agama === "Buddha") selected @endif>Buddha</option>
+                          <option value="Hindu"  @if ($res->agama === 'Hindu') selected @endif>Hindu</option>
                         </select>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-light">Jarak dari rumah (KM)</span>
+                        <input type="number" class="form-control" placeholder="Contoh : 7" name="jarak" value="{{$res->jarak}}">
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-light">Nomor telefon siswa</span>
+                        <input type="text" class="form-control" placeholder="Contoh : 081234567891" name="nomor_hp" value="{{$res->nomor_hp}}">
+                        @error('nomor_hp')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-light">Golongan Darah</span>
+                        <select name="goldar" class="form-select">
+                          <option value="O" @if ($res->goldar === 'O') selected @endif>O</option>
+                          <option value="A"  @if ($res->goldar === 'A') selected @endif>A</option>
+                          <option value="B"  @if ($res->goldar === 'B') selected @endif>B</option>
+                          <option value="AB"  @if ($res->goldar === "AB") selected @endif>AB</option>
+                        </select>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-light">Tinggi badan (CM)</span>
+                        <input type="number" class="form-control" placeholder="Contoh : 172" name="tinggi" value="{{$res->tinggi}}">
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-light">Berat badan (KG)</span>
+                        <input type="number" class="form-control" placeholder="Contoh : 55" name="berat" value="{{$res->berat}}">
                       </div>
                     </div>
                     <div
@@ -119,8 +194,22 @@
                       id="ex2-tabs-3"
                       role="tabpanel"
                       aria-labelledby="ex2-tab-3"
-                    >
+                    > 
+                      <h3 class="text-uppercase text-center">{{$title}}</h3>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-light">Riwayat penyakit</span>
+                        <input type="text" class="form-control" placeholder="Contoh : Asma" name="penyakit" value="{{$res->penyakit}}">
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-light">Kegemaran</span>
+                        <input type="text" class="form-control" placeholder="Contoh : Bulu tangkis" name="hobi" value="{{$res->hobi}}">
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-light">Kewarganegaraan</span>
+                        <input type="text" class="form-control" placeholder="Contoh : Indonesia" name="kewarganegaraan" value="{{$res->kewarganegaraan}}">
+                      </div>
                       <div class="d-grip gap-2 mb-3 w-100">
+                        <p class="fw-light"><span class="text-danger fw-bold">*</span> pastikan data yang kamu masukkan benar dan sesuai ketentuan</p>
                         <button type="submit" class="btn btn-primary w-100"><i class="bi bi-cloud-check me-2"></i> Simpan</button>
                       </div>
                     </div>
