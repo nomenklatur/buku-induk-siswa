@@ -23,7 +23,7 @@ class CreateDadsTable extends Migration
             $table->string('agama')->nullable();
             $table->string('kewarganegaraan')->nullable();
             $table->string('pekerjaan')->nullable();
-            $table->string('pendidikan')->nullable();
+            $table->integer('pendidikan')->nullable();
             $table->string('penghasilan')->nullable();
             $table->string('alamat')->nullable();
             $table->string('nomor_hp')->nullable();

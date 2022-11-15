@@ -65,4 +65,8 @@ class User extends Authenticatable
     public function mutasi(){
         return $this->hasOne(Mutation::class);
     }
+
+    public function getRouteKeyName(){
+        return 'nisn';
+    }
 }

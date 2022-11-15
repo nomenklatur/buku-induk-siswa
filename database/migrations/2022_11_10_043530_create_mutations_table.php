@@ -22,6 +22,7 @@ class CreateMutationsTable extends Migration
             $table->string('tanggal_ijazah');
             $table->string('pindah_dari');
             $table->string('alasan_dari');
+            $table->timestamps();
         });
     }
 

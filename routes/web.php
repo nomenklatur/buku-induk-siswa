@@ -29,3 +29,5 @@ Route::get('/data-ibu/{mom}', [Siswa::class, 'mom_form'])->middleware('auth');
 Route::put('/data-ibu/{mom}', [Siswa::class, 'edit_mom'])->middleware('auth');
 Route::get('/data-wali/{guardian}', [Siswa::class, 'guardian_form'])->middleware('auth');
 Route::put('/data-wali/{guardian}', [Siswa::class, 'edit_guardian'])->middleware('auth');
+Route::get('/password/{user}', [Siswa::class, 'password_form'])->middleware('auth');
+Route::put('/password/{user}', [Siswa::class, 'change_password'])->middleware('auth');

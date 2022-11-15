@@ -1,13 +1,14 @@
 @extends('layouts.base')
 
 @section('content')
-    @if (session()->has('Updated'))
+    
+    <div class="container card shadow mt-3 mb-3">
+      @if (session()->has('Updated'))
           <div class="alert alert-success alert-dismissible fade show position-absolute w-100" role="alert">
             <i class="bi bi-check-circle me-2"></i>{{ session('Updated') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         @endif
-    <div class="container card shadow mt-3 mb-3">
       <div class="row justify-content-center p-3">
         <div class="col-lg-3">
           <img src="@if (auth()->user()->foto === NULL) @if(auth()->user()->jenis_kelamin === 'L') /images/male.png @else /images/female.png @endif @else {{asset('storage/'.auth()->user()->foto)}}  @endif" class="img-fluid rounded-start" alt="..." style="max-width: 220px">

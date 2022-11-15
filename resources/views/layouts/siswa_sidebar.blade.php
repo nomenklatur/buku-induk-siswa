@@ -37,7 +37,7 @@
       <strong>{{auth()->user()->nama_lengkap}}</strong>
     </a>
     <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-      <li><a class="dropdown-item" href="#">Ganti Password</a></li>
+      <li><a class="dropdown-item" href="/password/{{auth()->user()->nisn}}">Ganti Password</a></li>
       <li><hr class="dropdown-divider"></li>
       <li>
         <form action="/keluar" method="POST">

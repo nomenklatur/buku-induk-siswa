@@ -17,6 +17,7 @@ class CreateGroupsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('nama');
+            $table->timestamps();
         });
     }
 

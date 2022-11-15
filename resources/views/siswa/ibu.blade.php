@@ -7,14 +7,14 @@
           <h3 class="text-uppercase fw-bold text-center">{{$title}}</h3>
         </div>
       </div>
-      <form action="/data-ayah/{{auth()->user()->ayah->uri}}" method="post" class="mx-3 my-3">
+      <form action="/data-ibu/{{auth()->user()->ibu->uri}}" method="post" class="mx-3 my-3">
         @method('put')
         @csrf
       <div class="row">
           <div class="col-lg-4">
             <div class="mb-3">
               <label for="nama" class="form-label">Nama lengkap</label>
-              <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{$res->nama}}" placeholder="Contoh: Agus Rahman">
+              <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{$res->nama}}" placeholder="Contoh: Sisilia Pramudya">
               @error('nama')
                 <div class="invalid-feedback">
                   {{ $message }}  

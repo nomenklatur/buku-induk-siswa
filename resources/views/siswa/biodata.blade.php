@@ -161,6 +161,11 @@
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Jarak dari rumah (KM)</span>
                         <input type="number" class="form-control" placeholder="Contoh : 7" name="jarak" value="{{$res->jarak}}">
+                        @error('jarak')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Nomor telefon siswa</span>
@@ -183,10 +188,20 @@
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Tinggi badan (CM)</span>
                         <input type="number" class="form-control" placeholder="Contoh : 172" name="tinggi" value="{{$res->tinggi}}">
+                        @error('tinggi')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Berat badan (KG)</span>
                         <input type="number" class="form-control" placeholder="Contoh : 55" name="berat" value="{{$res->berat}}">
+                        @error('berat')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                     </div>
                     <div
@@ -199,14 +214,29 @@
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Riwayat penyakit</span>
                         <input type="text" class="form-control" placeholder="Contoh : Asma" name="penyakit" value="{{$res->penyakit}}">
+                        @error('penyakit')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Kegemaran</span>
                         <input type="text" class="form-control" placeholder="Contoh : Bulu tangkis" name="hobi" value="{{$res->hobi}}">
+                        @error('hobi')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text bg-light">Kewarganegaraan</span>
                         <input type="text" class="form-control" placeholder="Contoh : Indonesia" name="kewarganegaraan" value="{{$res->kewarganegaraan}}">
+                        @error('kewarganegaraan')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
                       </div>
                       <div class="d-grip gap-2 mb-3 w-100">
                         <p class="fw-light"><span class="text-danger fw-bold">*</span> pastikan data yang kamu masukkan benar dan sesuai ketentuan</p>

@@ -7,7 +7,7 @@
           <h3 class="text-uppercase fw-bold text-center">{{$title}}</h3>
         </div>
       </div>
-      <form action="/data-ayah/{{auth()->user()->ayah->uri}}" method="post" class="mx-3 my-3">
+      <form action="/data-wali/{{auth()->user()->wali->uri}}" method="post" class="mx-3 my-3">
         @method('put')
         @csrf
       <div class="row">
@@ -105,22 +105,6 @@
               <label for="nomor_hp" class="form-label">Nomor Telefon</label>
               <input type="text" class="form-control @error('nomor_hp') is-invalid @enderror" name="nomor_hp" value="{{$res->nomor_hp}}" placeholder="Contoh: 081234567891">
               @error('nomor_hp')
-                <div class="invalid-feedback">
-                  {{ $message }}  
-                </div>                   
-              @enderror
-            </div>
-            <div class="mb-3">
-              <p>Status Orang Tua</p>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input @error('status') is-invalid @enderror" type="radio" name="status" value="Masih Hidup" @if ($res->status == 'Masih Hidup') checked @endif>
-                <label class="form-check-label" for="inlineRadio1">Masih hidup</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input @error('status') is-invalid @enderror" type="radio" name="status" value="Telah Meninggal" @if ($res->status == 'Telah Meninggal') checked @endif>
-                <label class="form-check-label" for="inlineRadio2">Telah Meninggal</label>
-              </div>
-              @error('status')
                 <div class="invalid-feedback">
                   {{ $message }}  
                 </div>                   
