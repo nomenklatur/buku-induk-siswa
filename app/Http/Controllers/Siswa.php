@@ -124,7 +124,7 @@ class Siswa extends Controller
             'nomor_hp' => 'required|string|max:13|regex:/[0-9]/',
         ]);
         Guardian::where('uri', $guardian->uri)->update($validated);
-        return redirect('/home')->with('Updated', 'Data ibu siswa berhasil diperbarui');
+        return redirect('/home')->with('Updated', 'Data wali siswa berhasil diperbarui');
     }
 
     public function password_form(User $user){

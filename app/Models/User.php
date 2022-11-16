@@ -36,6 +36,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
     ];
+    protected $with = [
+        'ayah',
+        'ibu',
+        'biodata',
+        'wali',
+        'kelas',
+        'mutasi',
+    ];
 
     /**
      * The attributes that should be cast.

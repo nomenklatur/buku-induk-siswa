@@ -1,6 +1,7 @@
 <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
   <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-    <i class="bi bi-person-badge fs-2 me-2"></i><span class="fs-4 fw-semibold">Halo, {{auth()->user()->nama_lengkap}}</span>
+    <img src="/images/tut wuri handayani.png" alt="Logo" width="40px" height="auto" class="me-2">
+    <span class="fs-4">Buku Induk Siswa</span>
   </a>
   <ul class="list-unstyled ps-0 sticky-top">
     <li class="mb-1">

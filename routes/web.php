@@ -3,6 +3,7 @@ use App\Models\Student;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Authorization;
 use App\Http\Controllers\Siswa;
+use App\Http\Controllers\Admin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +32,7 @@ Route::get('/data-wali/{guardian}', [Siswa::class, 'guardian_form'])->middleware
 Route::put('/data-wali/{guardian}', [Siswa::class, 'edit_guardian'])->middleware('auth');
 Route::get('/password/{user}', [Siswa::class, 'password_form'])->middleware('auth');
 Route::put('/password/{user}', [Siswa::class, 'change_password'])->middleware('auth');
+
+// Admin Exclusive Routes
+Route::get('/dashboard', [Admin::class, 'index'])->middleware('auth');
+
