@@ -15,6 +15,9 @@ class Admin extends Controller
 {
     public function index(){
         $mutasi = Mutation::latest()->get();
+        $murid = User::where('status', 'siswa')->get();
+        $siswa_yatim_piatu = $murid->filter(function($val){ if($val->ayah->status === 'Telah Meninggal' || $val->ibu->status === 'Telah Meninggal'){ return $val;} });
+        $siswa_kurang_mampu = $murid->filter(function($val){ return $val->ayah->penghasilan + $val->ibu->penghasilan < 3000000; });
         $siswa = Student::latest()->get();
         $kelas = Group::latest()->get();
         return view('admin/dashboard', [
@@ -24,7 +27,11 @@ class Admin extends Controller
             'jumlah_kelas' => $kelas->count(),
             'kelas' => $kelas,
             'jumlah_mutasi' => $mutasi->count(),
-            'mutasi' => $mutasi
+            'mutasi' => $mutasi,
+            'murid_perempuan' => $murid->where('jenis_kelamin', 'P')->count(),
+            'murid_laki' => $murid->where('jenis_kelamin', 'L')->count(),
+            'siswa_kurang_mampu' => $siswa_kurang_mampu->count(),
+            'siswa_yatim_piatu' => $siswa_yatim_piatu->count(),
         ]);
     }
 }

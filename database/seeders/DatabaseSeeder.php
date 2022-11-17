@@ -6,6 +6,11 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Models\Student;
+use App\Models\Dad;
+use App\Models\Mom;
+use App\Models\Guardian;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,7 +30,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'adminweb@gmail.com',
             'password' => Hash::make('admin123'),
             'jenis_kelamin' => 'L',
-            'tahun_ajar' => 'n',
+            'year_id' => 1,
         ]);
 
         DB::table('users')->insert([
@@ -37,7 +42,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'tesakunsiswa@gmail.com',
             'password' => Hash::make('siswa123'),
             'jenis_kelamin' => 'L',
-            'tahun_ajar' => 'n',
+            'year_id' => 1,
         ]);
 
         DB::table('students')->insert([
@@ -59,5 +64,11 @@ class DatabaseSeeder extends Seeder
             'user_id' => 2,
             'uri' => Str::random(50)
         ]);
+
+        User::factory(120)
+            ->has(Student::factory()->count(1), 'biodata')
+            ->has(Dad::factory()->count(1),'ayah')
+            ->has(Mom::factory()->count(1),'ibu')
+            ->create();
     }
 }

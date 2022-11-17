@@ -53,11 +53,10 @@
               Data Lainnya
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Murid Perempuan</li>
-              <li class="list-group-item">Murid Laki-laki</li>
-              <li class="list-group-item">Siswa Yatim Piatu</li>
-              <li class="list-group-item">Siswa Yatim</li>
-              <li class="list-group-item">Siswa Piatu</li>
+              <li class="list-group-item">Murid Perempuan = {{$murid_perempuan}}</li>
+              <li class="list-group-item">Murid Laki-laki = {{$murid_laki}}</li>
+              <li class="list-group-item">Siswa Yatim/Piatu = {{$siswa_yatim_piatu}}</li>
+              <li class="list-group-item">Siswa Kurang Mampu = {{$siswa_kurang_mampu}}</li>
             </ul>
           </div>
           <div class="card border-info shadow" style="width: 18rem;">

@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('jenis_kelamin');
-            $table->string('tahun_ajar');
+            $table->foreignId('year_id');
             $table->timestamps();
         });
     }
