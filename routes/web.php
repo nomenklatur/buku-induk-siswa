@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Authorization;
 use App\Http\Controllers\Siswa;
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,5 +35,5 @@ Route::get('/password/{user}', [Siswa::class, 'password_form'])->middleware('aut
 Route::put('/password/{user}', [Siswa::class, 'change_password'])->middleware('auth');
 
 // Admin Exclusive Routes
-Route::get('/dashboard', [Admin::class, 'index'])->middleware('auth');
-
+Route::get('/dashboard', [Admin::class, 'index'])->middleware('admin');
+Route::resource('/admin/siswa', UserController::class)->middleware('admin');
