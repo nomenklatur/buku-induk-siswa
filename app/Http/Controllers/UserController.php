@@ -47,28 +47,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $password = Str::random(10);
         $validated = $request->validate([
-            'nama_lengkap' => 'required|string|max:50',
-            'nisn' => 'required|string|max:16|regex:/[0-9]/',
-            'nis' => 'required|string|max:16|regex:/[0-9]/',
+            'nama_lengkap' => 'required|max:50',
+            'nisn' => 'required|max:16|regex:/[0-9]/',
+            'nis' => 'required|max:16|regex:/[0-9]/',
             'jenis_kelamin' => 'required',
-            'email' => 'required',
-            'foto' => 'image|file|max:1024',
+            'email' => 'required|email:dns',
+            'foto' => 'nullable|image|file|max:1024',
         ]);
         if($request->file('foto')){
             $validated['foto'] = $request->file('foto')->store('foto-siswa');
         }
         $validated['status'] = 'siswa';
-        $validated['password'] = Hash::make($password);
+        $validated['password'] = Hash::make(Str::random(10));
         $validated['year_id'] = 1; 
-        User::create($validated);
-        // $ayah = $user->ayah()->create(['uri' => Str::random(40)]);
-        // $ibu = $user->ibu()->create(['uri' => Str::random(40)]);
-        // $biodata = $user->biodata()->create(['uri' => Str::random(40)]);
-        // $wali = $user->wali()->create(['uri' => Str::random(40)]);
-        // $user->dd();
-        return redirect('/dashboard')->with('caleg_success', 'Calon legislatif berhasil ditambahkan');
+
+        $user = User::create($validated);
+        $ayah = $user->ayah()->create(['uri' => Str::random(40)]);
+        $ibu = $user->ibu()->create(['uri' => Str::random(40)]);
+        $biodata = $user->biodata()->create(['uri' => Str::random(40)]);
+        $wali = $user->wali()->create(['uri' => Str::random(40)]);
+        return redirect('/dashboard');
     }
 
     /**
