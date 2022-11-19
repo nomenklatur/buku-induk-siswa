@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Dad;
+use App\Models\Mom;
+use App\Models\Student;
+use App\Models\Mutation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -14,7 +20,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view();
+        $siswa = User::where('status', 'siswa');
+        return view('admin/daftar_siswa', [
+            'title' => 'Daftar Siswa',
+            'res' => $siswa->filter(request(['cari']))->paginate(50)->withQueryString(),
+        ]);
     }
 
     /**
@@ -24,7 +34,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/tambah_siswa',[
+            'title' => 'Tambah Siswa',
+        ]);
     }
 
     /**
@@ -35,7 +47,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $password = Str::random(10);
+        $validated = $request->validate([
+            'nama_lengkap' => 'required|string|max:50',
+            'nisn' => 'required|string|max:16|regex:/[0-9]/',
+            'nis' => 'required|string|max:16|regex:/[0-9]/',
+            'jenis_kelamin' => 'required',
+            'email' => 'required',
+            'foto' => 'image|file|max:1024',
+        ]);
+        if($request->file('foto')){
+            $validated['foto'] = $request->file('foto')->store('foto-siswa');
+        }
+        $validated['status'] = 'siswa';
+        $validated['password'] = Hash::make($password);
+        $validated['year_id'] = 1; 
+        User::create($validated);
+        // $ayah = $user->ayah()->create(['uri' => Str::random(40)]);
+        // $ibu = $user->ibu()->create(['uri' => Str::random(40)]);
+        // $biodata = $user->biodata()->create(['uri' => Str::random(40)]);
+        // $wali = $user->wali()->create(['uri' => Str::random(40)]);
+        // $user->dd();
+        return redirect('/dashboard')->with('caleg_success', 'Calon legislatif berhasil ditambahkan');
     }
 
     /**

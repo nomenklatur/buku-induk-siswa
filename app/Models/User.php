@@ -77,4 +77,10 @@ class User extends Authenticatable
     public function getRouteKeyName(){
         return 'nisn';
     }
+
+    public function scopeFilter($query, array $filters){
+        if(isset($filters['cari'])? $filters['cari']: false){
+             return $query->where('nama_lengkap', 'like', '%'.$filters['cari'].'%');
+        }
+    }
 }
