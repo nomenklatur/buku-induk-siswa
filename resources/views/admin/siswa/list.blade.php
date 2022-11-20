@@ -42,7 +42,7 @@
                       @method('delete')
                       <button type="submit" class="btn btn-sm btn-danger me-1" onclick="return confirm('Anda yakin akan menghapus siswa ini?')"><i class="bi bi-trash"></i></button>
                     </form>
-                    <a href="" class="btn btn-sm btn-info me-1"><i class="bi bi-eye"></i></a> 
+                    <a href="/admin/siswa/{{$item->nisn}}" class="btn btn-sm btn-info me-1"><i class="bi bi-eye"></i></a> 
                     <a href="/admin/siswa/{{$item->nisn}}/edit" class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i></a>
                   </td>
                 </tr>

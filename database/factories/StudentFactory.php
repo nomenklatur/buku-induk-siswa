@@ -16,7 +16,7 @@ class StudentFactory extends Factory
     {
         return [
             'uri' => Str::random(50),
-            'alamat' => $this->faker->streetName(),
+            'alamat' => $this->faker->address(),
             'kota' => $this->faker->city(),
         ];
     }

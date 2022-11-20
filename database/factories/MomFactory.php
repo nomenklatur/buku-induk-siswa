@@ -22,7 +22,7 @@ class MomFactory extends Factory
             'kewarganegaraan' => 'Indonesia',
             'pekerjaan' => $this->faker->randomElement(['Dokter', 'Pedagang', 'Pegawai Swasta', 'Pegawai Negeri', 'Wiraswasta']),
             'penghasilan' => $this->faker->numberBetween(500000, 3000000),
-            'alamat' => $this->faker->streetName(),
+            'alamat' => $this->faker->address(),
             'nomor_hp' => $this->faker->phoneNumber(),
             'status' => $this->faker->randomElement(['Masih Hidup', 'Telah Meninggal']),
             'created_at' => now()

@@ -51,9 +51,9 @@ class UserController extends Controller
             'nama_lengkap' => 'required|max:50',
             'nisn' => 'required|max:16|regex:/[0-9]/',
             'nis' => 'required|max:16|regex:/[0-9]/',
+            'jenis_kelamin' => 'required',
             'email' => 'required|email:dns',
             'foto' => 'nullable|image|file|max:1024',
-            'jenis_kelamin' => 'required',
         ]);
         if($request->file('foto')){
             $validated['foto'] = $request->file('foto')->store('foto-siswa');
@@ -76,9 +76,12 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $siswa)
     {
-        //
+        return view('admin/siswa/detail', [
+            'title' => $siswa->nama_lengkap,
+            'res' => $siswa
+        ]);
     }
 
     /**

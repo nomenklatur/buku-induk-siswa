@@ -24,6 +24,7 @@ class User extends Authenticatable
         'nisn',
         'nis',
         'email',
+        'jenis_kelamin',
         'password',
         'status',
         'year_id',
