@@ -15,7 +15,7 @@ class CreateDadsTable extends Migration
     {
         Schema::create('dads', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->onDelete('cascade');
             $table->string('uri')->unique();
             $table->string('nama')->nullable();
             $table->string('tempat_lahir')->nullable();

@@ -4,34 +4,34 @@
     <span class="fs-4">Buku Induk Siswa</span>
   </a>
   <ul class="list-unstyled ps-0 sticky-top">
-    <li class="mb-1">
-        <a href="/dashboard" class="text-decoration-none link-dark btn btn-toggle">Dashboard</a>
+    <li class="mb-3">
+        <a href="/dashboard" class="text-decoration-none btn btn-outline-info text-dark w-75"><i class="bi bi-speedometer me-2"></i> Dashboard</a>
     </li>
-    <li class="mb-1">
-      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-        Kesiswaan
+    <li class="mb-3">
+      <button class="btn btn-outline-info text-dark w-75 align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#kesiswaan-collapse" aria-expanded="false">
+        <i class="bi bi-person me-2"></i> Kesiswaan
       </button>
-      <div class="collapse" id="dashboard-collapse">
+      <div class="collapse mt-2" id="kesiswaan-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
           <li><a href="/admin/siswa/create" class="link-dark rounded">Tambah Siswa</a></li>
-          <li><a href="/admin/siswa" class="link-dark rounded">Data Siswa</a></li>
+          <li><a href="/admin/siswa" class="link-dark rounded">Daftar Siswa</a></li>
           <li><a href="#" class="link-dark rounded">Data Mutasi</a></li>
         </ul>
       </div>
     </li>
-    <li class="mb-1">
-      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-        Kelas
+    <li class="mb-3">
+      <button class="btn btn-outline-info align-items-center rounded collapsed text-dark w-75" data-bs-toggle="collapse" data-bs-target="#kelas-collapse" aria-expanded="false">
+        <i class="bi bi-house me-2"></i>Kelas
       </button>
-      <div class="collapse" id="orders-collapse">
+      <div class="collapse mt-2" id="kelas-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
           <li><a href="#" class="link-dark rounded">Tambah Kelas</a></li>
           <li><a href="#" class="link-dark rounded">Daftar Kelas</a></li>
         </ul>
       </div>
     </li>
-    <li class="mb-1">
-      <a href="/dashboard" class="text-decoration-none link-dark btn btn-toggle">Tahun Ajaran</a>
+    <li class="mb-3">
+      <a href="/dashboard" class="text-decoration-none link-dark btn btn-outline-info w-75 text-dark"><i class="bi bi-calendar me-2"></i> Tahun Ajaran</a>
   </li>
     <li class="border-top my-3"></li>
     <li class="mb-1">

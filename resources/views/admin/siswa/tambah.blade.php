@@ -47,7 +47,12 @@
             </div>
             <div class="mb-3">
               <label for="foto" class="form-label">Pas Foto Siswa</label>
-              <input class="form-control" type="file" name="foto">
+              <input class="form-control @error('foto') is-invalid @enderror" type="file" name="foto">
+              @error('foto')
+                <div class="invalid-feedback">
+                  {{ $message }}  
+                </div>                   
+              @enderror
             </div>
             <div class="mb-3">
               <p>Jenis Kelamin</p>

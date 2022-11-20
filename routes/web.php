@@ -5,7 +5,6 @@ use App\Http\Controllers\Authorization;
 use App\Http\Controllers\Siswa;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\TesStoreData;
 
 /*
 |--------------------------------------------------------------------------

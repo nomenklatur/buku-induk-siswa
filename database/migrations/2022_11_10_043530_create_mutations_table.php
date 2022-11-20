@@ -15,7 +15,7 @@ class CreateMutationsTable extends Migration
     {
         Schema::create('mutations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->onDelete('cascade');
             $table->string('pindah_ke')->nullable();
             $table->string('alasan')->nullable();
             $table->string('nomor_ijazah');
