@@ -61,7 +61,7 @@ class User extends Authenticatable
     }
 
     public function biodata(){
-        return $this->hasOne(Student::class);
+        return $this->hasOne(Biodata::class);
     }
 
     public function wali(){

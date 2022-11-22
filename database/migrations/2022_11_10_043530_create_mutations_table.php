@@ -16,12 +16,13 @@ class CreateMutationsTable extends Migration
         Schema::create('mutations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->onDelete('cascade');
+            $table->string('uri')->unique();
             $table->string('pindah_ke')->nullable();
-            $table->string('alasan')->nullable();
-            $table->string('nomor_ijazah');
-            $table->string('tanggal_ijazah');
-            $table->string('pindah_dari');
-            $table->string('alasan_dari');
+            $table->string('alasan_ke')->nullable();
+            $table->string('nomor_ijazah')->nullable();
+            $table->string('tanggal_ijazah')->nullable();
+            $table->string('pindah_dari')->nullable();
+            $table->string('alasan_dari')->nullable();
             $table->timestamps();
         });
     }

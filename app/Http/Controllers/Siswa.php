@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Dad;
 use App\Models\Mom;
 use App\Models\Guardian;
-use App\Models\Student;
+use App\Models\Biodata;
 
 class Siswa extends Controller
 {
@@ -19,14 +19,14 @@ class Siswa extends Controller
         ]);
     }
 
-    public function bio_form(Student $student){
+    public function bio_form(Biodata $biodata){
         return view('siswa.biodata', [
             'title' => 'Biodata Siswa',
-            'res' => $student,
+            'res' => $biodata,
         ]);
     }
 
-    public function edit_bio(Request $request, Student $student){
+    public function edit_bio(Request $request, Biodata $biodata){
         $validated = $request->validate([
             'alamat' => 'required|string',
             'kota' => 'required|string',
@@ -47,9 +47,10 @@ class Siswa extends Controller
             'penyakit' => 'nullable|string',
             'hobi' => 'nullable|string',
             'kewarganegaraan' => 'required|string',
+            'sekolah_asal' => 'required',
         ]);
         
-        Student::where('uri', $student->uri)->update($validated);
+        Biodata::where('uri', $biodata->uri)->update($validated);
         return redirect('/home')->with('Updated', 'Biodata berhasil diperbarui!');
     }
 

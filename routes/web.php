@@ -5,6 +5,7 @@ use App\Http\Controllers\Authorization;
 use App\Http\Controllers\Siswa;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KelasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,8 @@ Route::post('/keluar', [Authorization::class, 'logout']);
 
 // Students Exclusive Routes
 Route::get('/home', [Siswa::class, 'index'])->middleware('auth');
-Route::get('/biodata/{student}', [Siswa::class, 'bio_form'])->middleware('auth');
-Route::put('/biodata/{student}', [Siswa::class, 'edit_bio'])->middleware('auth');
+Route::get('/biodata/{biodata}', [Siswa::class, 'bio_form'])->middleware('auth');
+Route::put('/biodata/{biodata}', [Siswa::class, 'edit_bio'])->middleware('auth');
 Route::get('/data-ayah/{dad}', [Siswa::class, 'dad_form'])->middleware('auth');
 Route::put('/data-ayah/{dad}', [Siswa::class, 'edit_dad'])->middleware('auth');
 Route::get('/data-ibu/{mom}', [Siswa::class, 'mom_form'])->middleware('auth');
@@ -38,3 +39,4 @@ Route::put('/password/{user}', [Siswa::class, 'change_password'])->middleware('a
 // Admin Exclusive Routes
 Route::get('/dashboard', [Admin::class, 'index'])->middleware('admin');
 Route::resource('/admin/siswa', UserController::class)->middleware('admin');
+Route::resource('/admin/kelas', KelasController::class)->middleware('admin');

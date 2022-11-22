@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Student;
+use App\Models\Biodata;
 use App\Models\Mom;
 use App\Models\Dad;
 use Illuminate\Http\Request;

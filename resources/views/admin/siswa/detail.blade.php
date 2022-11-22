@@ -22,7 +22,7 @@
           <p>diterima pada tahun ajaran </p>
         </div>
       </div>
-      <div class="row mb-3">
+      <div class="row mb-3 justify-content-center">
         <h3 class="mb-3">A. Keterangan Siswa</h3>
         <div class="col-lg-5">
           <table class="table">
@@ -35,6 +35,11 @@
               <th>Kota</th>
               <td>:</td>
               <td>{{$res->biodata->kota}}</td>
+            </tr>
+            <tr>
+              <th>Sekolah Asal</th>
+              <td>:</td>
+              <td>{{$res->biodata->sekolah_asal}}</td>
             </tr>
             <tr>
               <th>Kecamatan</th>
@@ -98,7 +103,7 @@
             <tr>
               <th>Jarak ke sekolah</th>
               <td>:</td>
-              <td>{{$res->biodata->jarak}}</td>
+              <td>{{$res->biodata->jarak.' Km'}}</td>
             </tr>
             <tr>
               <th>Nomor HP</th>
@@ -118,12 +123,12 @@
             <tr>
               <th>Tinggi Badan</th>
               <td>:</td>
-              <td>{{$res->biodata->tinggi}} Cm</td>
+              <td>{{$res->biodata->tinggi.' Cm'}}</td>
             </tr>
             <tr>
               <th>Berat Badan</th>
               <td>:</td>
-              <td>{{$res->biodata->berat}}</td>
+              <td>{{$res->biodata->berat.' Kg'}}</td>
             </tr>
             <tr>
               <th>Riwayat Penyakit</th>
@@ -133,7 +138,7 @@
           </table>
         </div>
       </div>
-      <div class="row mb-3">
+      <div class="row mb-3 justify-content-center">
         <h3 class="mb-3">B. Keterangan Orang Tua Siswa</h3>
         <div class="col-lg-5">
           <table class="table">
@@ -141,6 +146,125 @@
               <th>Nama Ayah</th>
               <td>:</td>
               <td>{{$res->ayah->nama}}</td>
+            </tr>
+            <tr>
+              <th>Alamat Ayah</th>
+              <td>:</td>
+              <td>{{$res->ayah->alamat}}</td>
+            </tr>
+            <tr>
+              <th>Kota Domisili Ayah</th>
+              <td>:</td>
+              <td>{{$res->ayah->kota}}</td>
+            </tr>
+            <tr>
+              <th>Kecamatan Domisili Ayah</th>
+              <td>:</td>
+              <td>{{$res->ayah->kecamatan}}</td>
+            </tr>
+            <tr>
+              <th>Kota Kelahiran Ayah</th>
+              <td>:</td>
+              <td>{{$res->ayah->tempat_lahir}}</td>
+            </tr>
+            <tr>
+              <th>Tanggal Lahir Ayah</th>
+              <td>:</td>
+              <td>{{$res->ayah->tanggal_lahir}}</td>
+            </tr>
+            <tr>
+              <th>Agama Ayah</th>
+              <td>:</td>
+              <td>{{$res->ayah->agama}}</td>
+            </tr>
+            <tr>
+              <th>Kewarganegaraan Ayah</th>
+              <td>:</td>
+              <td>{{$res->ayah->kewarganegaraan}}</td>
+            </tr>
+            <tr>
+              <th>Pekerjaan Ayah</th>
+              <td>:</td>
+              <td>{{$res->ayah->pekerjaan}}</td>
+            </tr>
+            <tr>
+              <th>Pendidikan Terakhir Ayah</th>
+              <td>:</td>
+              <td>{{$res->ayah->pendidikan}}</td>
+            </tr>
+            <tr>
+              <th>Penghasilan perbulan Ayah</th>
+              <td>:</td>
+              <td>{{'Rp. '.number_format($res->ayah->penghasilan, 2,',', '.')}}</td>
+            </tr>
+            <tr>
+              <th>Nomor Telefon</th>
+              <td>:</td>
+              <td>{{$res->ayah->nomor_hp}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-lg-5">
+          <table class="table">
+            <tr>
+              <th>Nama ibu</th>
+              <td>:</td>
+              <td>{{$res->ibu->nama}}</td>
+            </tr>
+            <tr>
+              <th>Alamat ibu</th>
+              <td>:</td>
+              <td>{{$res->ibu->alamat}}</td>
+            </tr>
+            <tr>
+              <th>Kota Domisili ibu</th>
+              <td>:</td>
+              <td>{{$res->ibu->kota}}</td>
+            </tr>
+            <tr>
+              <th>Kecamatan Domisili ibu</th>
+              <td>:</td>
+              <td>{{$res->ibu->kecamatan}}</td>
+            </tr>
+            <tr>
+              <th>Kota Kelahiran ibu</th>
+              <td>:</td>
+              <td>{{$res->ibu->tempat_lahir}}</td>
+            </tr>
+            <tr>
+              <th>Tanggal Lahir ibu</th>
+              <td>:</td>
+              <td>{{$res->ibu->tanggal_lahir}}</td>
+            </tr>
+            <tr>
+              <th>Agama ibu</th>
+              <td>:</td>
+              <td>{{$res->ibu->agama}}</td>
+            </tr>
+            <tr>
+              <th>Kewarganegaraan ibu</th>
+              <td>:</td>
+              <td>{{$res->ibu->kewarganegaraan}}</td>
+            </tr>
+            <tr>
+              <th>Pekerjaan ibu</th>
+              <td>:</td>
+              <td>{{$res->ibu->pekerjaan}}</td>
+            </tr>
+            <tr>
+              <th>Pendidikan Terakhir ibu</th>
+              <td>:</td>
+              <td>{{$res->ibu->pendidikan}}</td>
+            </tr>
+            <tr>
+              <th>Penghasilan perbulan ibu</th>
+              <td>:</td>
+              <td>{{'Rp. '.number_format($res->ibu->penghasilan, 2,',', '.')}}</td>
+            </tr>
+            <tr>
+              <th>Nomor Telefon</th>
+              <td>:</td>
+              <td>{{$res->ibu->nomor_hp}}</td>
             </tr>
           </table>
         </div>

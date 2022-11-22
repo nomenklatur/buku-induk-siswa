@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use App\Models\Student;
+use App\Models\Biodata;
 use App\Models\Dad;
 use App\Models\Mom;
 use App\Models\Guardian;
@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             'year_id' => 1,
         ]);
 
-        DB::table('students')->insert([
+        DB::table('biodatas')->insert([
             'user_id' => 2,
             'uri' => Str::random(50)
         ]);
@@ -65,8 +65,8 @@ class DatabaseSeeder extends Seeder
             'uri' => Str::random(50)
         ]);
 
-        User::factory(120)
-            ->has(Student::factory()->count(1), 'biodata')
+        User::factory(19)
+            ->has(Biodata::factory()->count(1), 'biodata')
             ->has(Dad::factory()->count(1),'ayah')
             ->has(Mom::factory()->count(1),'ibu')
             ->create();

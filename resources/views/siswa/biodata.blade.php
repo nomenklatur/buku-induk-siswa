@@ -238,6 +238,15 @@
                           </div>                   
                         @enderror
                       </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-light">Sekolah Asal</span>
+                        <input type="text" class="form-control" placeholder="Contoh : SMPN 1 Kota Medan" name="sekolah_asal" value="{{$res->sekolah_asal}}">
+                        @error('sekolah_asal')
+                          <div class="invalid-feedback">
+                            {{ $message }}  
+                          </div>                   
+                        @enderror
+                      </div>
                       <div class="d-grip gap-2 mb-3 w-100">
                         <p class="fw-light"><span class="text-danger fw-bold">*</span> pastikan data yang kamu masukkan benar dan sesuai ketentuan</p>
                         <button type="submit" class="btn btn-primary w-100"><i class="bi bi-cloud-check me-2"></i> Simpan</button>

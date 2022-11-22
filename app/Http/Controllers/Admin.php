@@ -9,7 +9,7 @@ use App\Models\Mutation;
 use App\Models\Mom;
 use App\Models\Group;
 use App\Models\Guardian;
-use App\Models\Student;
+use App\Models\Biodata;
 
 class Admin extends Controller
 {
@@ -18,7 +18,7 @@ class Admin extends Controller
         $murid = User::where('status', 'siswa')->get();
         $siswa_yatim_piatu = $murid->filter(function($val){ if($val->ayah->status === 'Telah Meninggal' || $val->ibu->status === 'Telah Meninggal'){ return $val;} });
         $siswa_kurang_mampu = $murid->filter(function($val){ return $val->ayah->penghasilan + $val->ibu->penghasilan < 3000000; });
-        $siswa = Student::latest()->get();
+        $siswa = Biodata::latest()->get();
         $kelas = Group::latest()->get();
         return view('admin/dashboard', [
             'title' => 'Dashboard',
