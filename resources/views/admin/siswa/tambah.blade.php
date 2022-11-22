@@ -55,6 +55,34 @@
               @enderror
             </div>
             <div class="mb-3">
+              <label for="group_id" class="form-label">Kelas Siswa</label>
+              <input class="form-control @error('group_id') is-invalid @enderror" list="listKelas" name="group_id" placeholder="Ketik nama kelas...">
+              <datalist id="listKelas">
+                @foreach ($kelas as $item)
+                    <option value="{{$item->id}}">{{$item->nama}}</option>
+                @endforeach
+              </datalist>
+              @error('group_id')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+              @enderror
+            </div>
+            <div class="mb-3">
+              <label for="year_id" class="form-label">Tahun Ajaran siswa Didaftarkan</label>
+              <input class="form-control @error('year_id') is-invalid @enderror" list="listTahun" name="year_id" placeholder="Ketik tahun ajaran...">
+              <datalist id="listTahun">
+                @foreach ($tahun as $item)
+                    <option value="{{$item->id}}">{{$item->tahun_ajaran}}</option>
+                @endforeach
+              </datalist>
+              @error('year_id')
+                  <div class="invalid-feedback">
+                    {{$message}}
+                  </div>
+              @enderror
+            </div>
+            <div class="mb-3">
               <p>Jenis Kelamin</p>
               <div class="form-check form-check-inline">
                 <input class="form-check-input @error('jenis_kelamin') is-invalid @enderror" type="radio" name="jenis_kelamin" value="L">

@@ -17,7 +17,10 @@
           <h1 class="text-uppercase">{{auth()->user()->nama_lengkap}}</h1>
           <h4 class="fw-normal">NISN : <span class="text-primary">{{auth()->user()->nisn}}</span></h4>
           <h4 class="fw-normal">NIS : <span class="text-primary">{{auth()->user()->nis}}</span></h4>
-          <p class="sub-title">Diterima pada tahun ajaran {{auth()->user()->tahun_ajar}}</p>
+          <p class="sub-title">Diterima pada tahun ajaran {{auth()->user()->tahun_ajar->tahun_ajaran}}</p>
+          @if (auth()->user()->kelas)
+            <p class="sub-title">Kelas : {{auth()->user()->kelas->nama}}</p>
+          @endif
         </div>
         <div class="col-lg-2">
           <a href="" class="btn btn-warning btn-lg"><i class="bi bi-printer me-2"></i>Cetak</a>
@@ -68,7 +71,7 @@
             </tr>
             <tr>
               <th>Jarak ke sekolah</th>
-              <td>{{auth()->user()->biodata->jarak}} KM</td>
+              <td>{{auth()->user()->biodata->jarak.' Km'}}</td>
             </tr>
             <tr>
               <th>Nomor Telefon</th>
@@ -80,11 +83,11 @@
             </tr>
             <tr>
               <th>Tinggi badan</th>
-              <td>{{auth()->user()->biodata->tinggi}} CM</td>
+              <td>{{auth()->user()->biodata->tinggi.' Cm'}}</td>
             </tr>
             <tr>
               <th>Berat badan</th>
-              <td>{{auth()->user()->biodata->berat}} KG</td>
+              <td>{{auth()->user()->biodata->berat.' Kg'}}</td>
             </tr>
           </table>
         </div>

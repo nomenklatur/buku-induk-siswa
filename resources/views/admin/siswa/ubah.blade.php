@@ -56,6 +56,32 @@
           @enderror
         </div>
         <div class="mb-3">
+          <label for="group_id" class="form-label">Kelas Siswa</label>
+          <select class="form-select @error('group_id') is-invalid @enderror" name='group_id'>
+            @foreach ($kelas as $item)
+                <option value="{{$item->id}}" @if ($res->group_id === $item->id) selected @endif>{{$item->nama}}</option>
+            @endforeach
+          </select>
+          @error('group_id')
+              <div class="invalid-feedback">
+                {{$message}}
+              </div>
+          @enderror
+        </div>
+        <div class="mb-3">
+          <label for="year_id" class="form-label">Tahun Ajaran siswa Didaftarkan</label>
+          <select class="form-select @error('year_id') is-invalid @enderror" name='year_id'>
+            @foreach ($tahun as $item)
+                <option value="{{$item->id}}" @if ($res->year_id === $item->id) selected @endif>{{$item->tahun_ajaran}}</option>
+            @endforeach
+          </select>
+          @error('year_id')
+              <div class="invalid-feedback">
+                {{$message}}
+              </div>
+          @enderror
+        </div>
+        <div class="mb-3">
           <p>Jenis Kelamin</p>
           <div class="form-check form-check-inline">
             <input class="form-check-input @error('jenis_kelamin') is-invalid @enderror" type="radio" name="jenis_kelamin" value="L" @if($res->jenis_kelamin === 'L') checked @endif>

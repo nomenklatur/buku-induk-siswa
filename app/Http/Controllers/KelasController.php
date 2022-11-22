@@ -28,7 +28,9 @@ class KelasController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/kelas/tambah', [
+            'title' => 'Tambah Kelas',
+        ]);
     }
 
     /**
@@ -39,7 +41,13 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required|string|min:3|max:30',
+        ]);
+        $validated['uri'] = Str::random(35);
+
+        Group::create($validated);
+        return redirect('/dashboard')->with('success', 'Kelas berhasil ditambahkan!');
     }
 
     /**
@@ -48,42 +56,57 @@ class KelasController extends Controller
      * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function show(Group $group)
+    public function show(Group $grup)
     {
-        //
+        return view('admin/kelas/detail', [
+            'title' => $grup->nama,
+            'res' => $grup,
+            'kelas' => Group::all(),
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Group  $grup
      * @return \Illuminate\Http\Response
      */
-    public function edit(Group $group)
+    public function edit(Group $grup)
     {
-        //
+        return view('admin/kelas/ubah', [
+            'title' => 'Ubah Siswa',
+            'res' => $grup,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Group  $grups
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Group $group)
+    public function update(Request $request, Group $grup)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required|string|min:3|max:30',
+        ]);
+        $grup->update($validated);
+        return redirect('/dashboard')->with('success', 'data kelas berhasil diperbarui!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Group  $grup
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Group $group)
+    public function destroy(Group $grup)
     {
-        //
+        foreach ($grup->siswa as $item) {
+            $item->update(['group_id' => NULL]);
+        }
+        $grup->delete();
+        return redirect('/dashboard')->with('success', 'Kelas berhasil dihapus');
     }
 }

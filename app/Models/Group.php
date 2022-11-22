@@ -10,7 +10,11 @@ class Group extends Model
     use HasFactory;
     protected $guarded = ['id'];
     
-    public function student(){
-        return $this->belongsTo(User::class);
+    public function siswa(){
+        return $this->hasMany(User::class);
+    }
+
+    public function getRouteKeyName(){
+        return 'uri';
     }
 }

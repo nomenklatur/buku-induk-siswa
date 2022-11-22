@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Biodata;
-use App\Models\Mom;
-use App\Models\Dad;
+use App\Models\Group;
+use App\Models\Year;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -36,6 +35,8 @@ class UserController extends Controller
     {
         return view('admin/siswa/tambah',[
             'title' => 'Tambah Siswa',
+            'kelas' => Group::latest()->get(),
+            'tahun' => Year::latest()->get(),
         ]);
     }
 
@@ -51,6 +52,8 @@ class UserController extends Controller
             'nama_lengkap' => 'required|max:50',
             'nisn' => 'required|max:16|regex:/[0-9]/',
             'nis' => 'required|max:16|regex:/[0-9]/',
+            'group_id' => 'required',
+            'year_id' => 'required',
             'jenis_kelamin' => 'required',
             'email' => 'required|email:dns',
             'foto' => 'nullable|image|file|max:1024',
@@ -60,7 +63,6 @@ class UserController extends Controller
         }
         $validated['status'] = 'siswa';
         $validated['password'] = Hash::make(Str::random(10));
-        $validated['year_id'] = 1; 
 
         $user = User::create($validated);
         $ayah = $user->ayah()->create(['uri' => Str::random(40)]);
@@ -95,6 +97,8 @@ class UserController extends Controller
         return view('admin/siswa/ubah', [
             'title' => 'Ubah Data Siswa',
             'res' => $siswa,
+            'kelas' => Group::latest()->get(),
+            'tahun' => Year::latest()->get(),
         ]);
     }
 
@@ -112,6 +116,8 @@ class UserController extends Controller
             'nisn' => 'required|max:16|regex:/[0-9]/',
             'nis' => 'required|max:16|regex:/[0-9]/',
             'jenis_kelamin' => 'required',
+            'group_id' => 'required',
+            'year_id' => 'required',
             'email' => 'required|email:dns',
             'foto' => 'nullable|image|file|max:1024',
         ]);
@@ -123,7 +129,7 @@ class UserController extends Controller
         }
         
         $siswa->update($validated);
-        return redirect('/dashboard');
+        return redirect('/dashboard')->with('success', 'Data siswa berhasil diubah');
     }
 
     /**

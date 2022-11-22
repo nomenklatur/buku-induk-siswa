@@ -4,10 +4,11 @@
     <div class="container card shadow w-100 mt-3 mb-3 p-3">
       <div class="row justify-content-center">
         <h3 class="text-center"><i class="bi bi-person me-2"></i> Data Induk siswa</h3>
-        <div class="col-lg-4 pt-2 text-center">
+        <div class="col-lg-8 pt-2 text-center">
           <a href="" class="btn btn-warning btn-sm"><i class="bi bi-printer me-2"></i>Cetak</a>
-          <a href="" class="btn btn-success btn-sm"><i class="bi bi-pencil me-2"></i>Ayah</a>
-          <a href="" class="btn btn-sm" style="background-color: pink;"><i class="bi bi-pencil me-2"></i>Ibu</a>
+          <a href="/admin/ayah/{{$res->ayah->uri}}" class="btn btn-success btn-sm"><i class="bi bi-pencil me-2"></i>Ayah</a>
+          <a href="/admin/biodata/{{$res->biodata->uri}}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil me-2"></i>biodata</a>
+          <a href="/admin/ibu/{{$res->ibu->uri}}" class="btn btn-sm" style="background-color: pink;"><i class="bi bi-pencil me-2"></i>Ibu</a>
           <a href="" class="btn btn-sm" style="background-color: skyblue;"><i class="bi bi-arrow-left-right me-2"></i>mutasi</a>
         </div>
       </div>
@@ -19,7 +20,7 @@
           <h3 class="mb-3 text-uppercase">{{$res->nama_lengkap}}</h3>
           <h5 class="fw-normal">Nomor Induk Siswa Nasional : {{$res->nisn}}</h5>
           <h5 class="fw-normal">Nomor Induk Siswa : {{$res->nis}}</h5>
-          <p>diterima pada tahun ajaran </p>
+          <p>diterima pada tahun ajaran {{$res->tahun_ajar->tahun_ajaran}}</p>
         </div>
       </div>
       <div class="row mb-3 justify-content-center">

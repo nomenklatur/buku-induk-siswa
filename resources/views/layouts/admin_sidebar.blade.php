@@ -1,14 +1,14 @@
-<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+<div class="p-3 bg-white" style="width: 280px;">
   <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-    <img src="/images/tut wuri handayani.png" alt="Logo" width="40px" height="auto" class="me-2">
-    <span class="fs-4">Buku Induk Siswa</span>
+    <img src="/images/tut wuri handayani.png" alt="Logo" width="30px" height="auto" class="me-2">
+    <span class="fs-6">Buku Induk Siswa</span>
   </a>
   <ul class="list-unstyled ps-0 sticky-top">
     <li class="mb-3">
-        <a href="/dashboard" class="text-decoration-none btn btn-outline-info text-dark w-75"><i class="bi bi-speedometer me-2"></i> Dashboard</a>
+        <a href="/dashboard" class="text-decoration-none btn btn-outline-info border-light text-dark "><i class="bi bi-speedometer me-2"></i> Dashboard</a>
     </li>
     <li class="mb-3">
-      <button class="btn btn-outline-info text-dark w-75 align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#kesiswaan-collapse" aria-expanded="false">
+      <button class="btn btn-outline-info border-light text-dark  align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#kesiswaan-collapse" aria-expanded="false">
         <i class="bi bi-person me-2"></i> Kesiswaan
       </button>
       <div class="collapse mt-2" id="kesiswaan-collapse">
@@ -20,18 +20,18 @@
       </div>
     </li>
     <li class="mb-3">
-      <button class="btn btn-outline-info align-items-center rounded collapsed text-dark w-75" data-bs-toggle="collapse" data-bs-target="#kelas-collapse" aria-expanded="false">
+      <button class="btn btn-outline-info border-light align-items-center rounded collapsed text-dark " data-bs-toggle="collapse" data-bs-target="#kelas-collapse" aria-expanded="false">
         <i class="bi bi-house me-2"></i>Kelas
       </button>
       <div class="collapse mt-2" id="kelas-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a href="#" class="link-dark rounded">Tambah Kelas</a></li>
-          <li><a href="#" class="link-dark rounded">Daftar Kelas</a></li>
+          <li><a href="/admin/grup/create" class="link-dark rounded">Tambah Kelas</a></li>
+          <li><a href="/admin/grup" class="link-dark rounded">Daftar Kelas</a></li>
         </ul>
       </div>
     </li>
     <li class="mb-3">
-      <a href="/dashboard" class="text-decoration-none link-dark btn btn-outline-info w-75 text-dark"><i class="bi bi-calendar me-2"></i> Tahun Ajaran</a>
+      <a href="/dashboard" class="text-decoration-none link-dark btn btn-outline-info border-light  text-dark"><i class="bi bi-calendar me-2"></i> Tahun Ajaran</a>
   </li>
     <li class="border-top my-3"></li>
     <li class="mb-1">

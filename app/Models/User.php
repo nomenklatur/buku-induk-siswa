@@ -28,6 +28,7 @@ class User extends Authenticatable
         'password',
         'status',
         'year_id',
+        'group_id',
     ];
 
     /**
@@ -45,6 +46,7 @@ class User extends Authenticatable
         'wali',
         'kelas',
         'mutasi',
+        'tahun_ajar',
     ];
 
     /**
@@ -69,7 +71,11 @@ class User extends Authenticatable
     }
 
     public function kelas(){
-        return $this->hasOne(Group::class);
+        return $this->belongsTo(Group::class, 'group_id');
+    }
+
+    public function tahun_ajar(){
+        return $this->belongsTo(Year::class, 'year_id');
     }
 
     public function mutasi(){

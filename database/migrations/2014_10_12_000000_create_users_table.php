@@ -15,6 +15,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('year_id');
+            $table->foreignId('group_id');
             $table->string('nama_lengkap');
             $table->string('foto')->nullable();
             $table->string('nisn')->unique();
@@ -23,7 +25,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('jenis_kelamin');
-            $table->foreignId('year_id');
             $table->timestamps();
         });
     }

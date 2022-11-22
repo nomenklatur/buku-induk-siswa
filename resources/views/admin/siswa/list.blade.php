@@ -18,6 +18,7 @@
           <a href="" class="btn btn-warning"><i class="bi bi-printer me-2"></i>Cetak</a>
         </div>
       </div>
+      @if($res->count())
       <div class="row justify-content-center">
         <div class="col-lg-11">
           <table class="table">
@@ -53,5 +54,14 @@
           </div>
         </div>
       </div>
+      @else
+        <div class="row justify-content-center mb-3 p-3">
+          <div class="col-lg-9 text-center">
+            <img src="/images/empty.jpg" alt="" class="img-fluid" width="200px">
+            <h2 class="text-uppercase text-warning fw-bold mb-3">data siswa tidak ditemukan</h2>
+            <a href="/admin/siswa/create" class="btn btn-primary btn-lg"><i class="bi bi-plus me-2"></i> Tambah Siswa</a>
+          </div>
+        </div>
     </div>
+    @endif
 @endsection

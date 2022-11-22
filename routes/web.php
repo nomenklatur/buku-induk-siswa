@@ -38,5 +38,6 @@ Route::put('/password/{user}', [Siswa::class, 'change_password'])->middleware('a
 
 // Admin Exclusive Routes
 Route::get('/dashboard', [Admin::class, 'index'])->middleware('admin');
+Route::post('/pindah', [Admin::class, 'move_students'])->middleware('auth');
 Route::resource('/admin/siswa', UserController::class)->middleware('admin');
-Route::resource('/admin/kelas', KelasController::class)->middleware('admin');
+Route::resource('/admin/grup', KelasController::class)->parameters(['kela' => 'kelas'])->middleware('admin');

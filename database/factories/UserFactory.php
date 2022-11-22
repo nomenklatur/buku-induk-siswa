@@ -24,6 +24,7 @@ class UserFactory extends Factory
             'password' => Hash::make('siswa123'),
             'jenis_kelamin' => $this->faker->randomElement(['L', 'P']),
             'year_id' => 1,
+            'group_id' => 1,
             'created_at' => now(),
         ];
     }
