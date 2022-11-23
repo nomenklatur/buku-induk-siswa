@@ -67,7 +67,7 @@
           </div>
           <div class="card shadow" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title mb-3"><i class="bi bi-calendar me-1"></i>Tahun Ajaran  {{$tahun->tahun_ajaran}}</h5>
+              <h5 class="card-title mb-3"><i class="bi bi-calendar me-1"></i>Tahun Ajaran  @if(count($tahun)) $tahun->tahun_ajaran @endif</h5>
               <a href="/admin/tahun" class="btn btn-primary btn-sm text-center"><i class="bi bi-pencil me-2"></i>Ubah</a>
             </div>
           </div>

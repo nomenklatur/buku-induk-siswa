@@ -7,7 +7,7 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-9">
-          <form action="/admin/siswa" method="POST">
+          <form action="/admin/siswa" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
               <label for="nama_lengkap" class="form-label">Nama Lengkap Siswa</label>

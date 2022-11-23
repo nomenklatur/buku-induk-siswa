@@ -7,7 +7,7 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-lg-9">
-      <form action="/admin/siswa/{{$res->nisn}}" method="POST">
+      <form action="/admin/siswa/{{$res->nisn}}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <div class="mb-3">

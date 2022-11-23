@@ -6,6 +6,7 @@
         <h3 class="text-center text-uppercase">{{$title}}</h3>
       </div>
       <div class="row justify-content-center mb-3">
+        @if(count($res->siswa) > 0)
         <div class="col-lg-11">
           <form action="/pindah" method="post">
             @csrf
@@ -45,6 +46,13 @@
             </div>
           </form>
         </div>
+        @else
+        <div class="col-lg-9 text-center">
+          <img src="/images/empty.jpg" alt="" class="img-fluid" width="200px">
+          <h2 class="text-capitalize text-warning fw-bold">data siswa kosong</h2>
+          <a href="/admin/siswa/create" class="btn btn-primary btn-lg"><i class="bi bi-plus me-2"></i> Tambah Siswa</a>
+        </div>
+        @endif
       </div>
     </div>
 @endsection

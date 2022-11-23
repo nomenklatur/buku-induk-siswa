@@ -5,10 +5,10 @@
   </a>
   <ul class="list-unstyled ps-0 sticky-top">
     <li class="mb-3">
-        <a href="/dashboard" class="text-decoration-none btn btn-outline-info border-light text-dark "><i class="bi bi-speedometer me-2"></i> Dashboard</a>
+        <a href="/dashboard" class="text-decoration-none btn btn-outline-info border-light text-dark w-100 text-start"><i class="bi bi-speedometer me-2"></i> Dashboard</a>
     </li>
     <li class="mb-3">
-      <button class="btn btn-outline-info border-light text-dark  align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#kesiswaan-collapse" aria-expanded="false">
+      <button class="btn btn-outline-info border-light text-dark  align-items-center rounded collapsed w-100 text-start" data-bs-toggle="collapse" data-bs-target="#kesiswaan-collapse" aria-expanded="false">
         <i class="bi bi-person me-2"></i> Kesiswaan
       </button>
       <div class="collapse mt-2" id="kesiswaan-collapse">
@@ -20,7 +20,7 @@
       </div>
     </li>
     <li class="mb-3">
-      <button class="btn btn-outline-info border-light align-items-center rounded collapsed text-dark " data-bs-toggle="collapse" data-bs-target="#kelas-collapse" aria-expanded="false">
+      <button class="btn btn-outline-info border-light align-items-center rounded collapsed text-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#kelas-collapse" aria-expanded="false">
         <i class="bi bi-house me-2"></i>Kelas
       </button>
       <div class="collapse mt-2" id="kelas-collapse">
@@ -31,8 +31,16 @@
       </div>
     </li>
     <li class="mb-3">
-      <a href="/dashboard" class="text-decoration-none link-dark btn btn-outline-info border-light  text-dark"><i class="bi bi-calendar me-2"></i> Tahun Ajaran</a>
-  </li>
+      <button class="btn btn-outline-info border-light align-items-center rounded collapsed text-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#tahun-collapse" aria-expanded="false">
+        <i class="bi bi-calendar me-2"></i>Tahun Ajaran
+      </button>
+      <div class="collapse mt-2" id="tahun-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="/admin/tahun/create" class="link-dark rounded">Tambah Tahun Ajaran</a></li>
+          <li><a href="/admin/tahun" class="link-dark rounded">Daftar Tahun Ajaran</a></li>
+        </ul>
+      </div>
+    </li>
     <li class="border-top my-3"></li>
     <li class="mb-1">
       <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">

@@ -48,6 +48,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $pass = Str::random(10);
         $validated = $request->validate([
             'nama_lengkap' => 'required|max:50',
             'nisn' => 'required|max:16|regex:/[0-9]/',
@@ -62,7 +63,7 @@ class UserController extends Controller
             $validated['foto'] = $request->file('foto')->store('foto-siswa');
         }
         $validated['status'] = 'siswa';
-        $validated['password'] = Hash::make(Str::random(10));
+        $validated['password'] = Hash::make($pass);
 
         $user = User::create($validated);
         $ayah = $user->ayah()->create(['uri' => Str::random(40)]);
@@ -121,11 +122,11 @@ class UserController extends Controller
             'email' => 'required|email:dns',
             'foto' => 'nullable|image|file|max:1024',
         ]);
-        if ($request->hasFile('gambar')) {
-            if($caleg->gambar != null){
-                Storage::delete($caleg->gambar);
+        if ($request->file('foto')) {
+            if($siswa->foto != null){
+                Storage::delete($siswa->foto);
             }
-            $validatedData['gambar'] = $request->file('gambar')->store('foto-caleg');
+            $validated['foto'] = $request->file('foto')->store('foto-siswa');
         }
         
         $siswa->update($validated);

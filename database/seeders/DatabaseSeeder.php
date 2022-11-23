@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'year_id' => 1,
-            'group_id' => 1,
+            'year_id' => 0,
+            'group_id' => 0,
             'nama_lengkap' => 'Admin',
             'foto' => NULL,
             'nisn' => 'XXXXXXXXXX',

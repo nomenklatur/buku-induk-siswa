@@ -6,6 +6,7 @@ use App\Http\Controllers\Siswa;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\TahunController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,15 @@ Route::put('/password/{user}', [Siswa::class, 'change_password'])->middleware('a
 
 // Admin Exclusive Routes
 Route::get('/dashboard', [Admin::class, 'index'])->middleware('admin');
-Route::post('/pindah', [Admin::class, 'move_students'])->middleware('auth');
+Route::post('/pindah', [Admin::class, 'move_students'])->middleware('admin');
 Route::resource('/admin/siswa', UserController::class)->middleware('admin');
-Route::resource('/admin/grup', KelasController::class)->parameters(['kela' => 'kelas'])->middleware('admin');
+Route::resource('/admin/grup', KelasController::class)->middleware('admin');
+Route::resource('/admin/tahun', TahunController::class)->middleware('admin');
+Route::get('admin/ayah/{dad}', [Admin::class, 'dad_form'])->middleware('admin');
+Route::put('admin/ayah/{dad}', [Admin::class, 'edit_dad'])->middleware('admin');
+Route::get('admin/ibu/{mom}', [Admin::class, 'mom_form'])->middleware('admin');
+Route::put('admin/ibu/{mom}', [Admin::class, 'edit_mom'])->middleware('admin');
+Route::get('admin/wali/{guardian}', [Admin::class, 'guardian_form'])->middleware('admin');
+Route::put('admin/wali/{guardian}', [Admin::class, 'edit_guardian'])->middleware('admin');
+Route::get('admin/biodata/{biodata}', [Admin::class, 'bio_form'])->middleware('admin');
+Route::put('admin/biodata/{biodata}', [Admin::class, 'edit_bio'])->middleware('admin');
