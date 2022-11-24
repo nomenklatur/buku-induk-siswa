@@ -40,7 +40,7 @@
               @else
                 <br>
               @endif
-              <a href="" class="btn btn-primary btn-sm mt-3"><i class="bi bi-plus me-2"></i>Tambah</a>
+              <a href="/admin/mutasi" class="btn btn-info btn-sm mt-3"><i class="bi bi-eye me-2"></i>Lihat</a>
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@
           </div>
           <div class="card shadow" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title mb-3"><i class="bi bi-calendar me-1"></i>Tahun Ajaran  @if(count($tahun)) $tahun->tahun_ajaran @endif</h5>
+              <h5 class="card-title mb-3"><i class="bi bi-calendar me-1"></i>Tahun Ajaran  @if(count($tahun) > 0) {{$tahun[0]->tahun_ajaran}} @endif</h5>
               <a href="/admin/tahun" class="btn btn-primary btn-sm text-center"><i class="bi bi-pencil me-2"></i>Ubah</a>
             </div>
           </div>

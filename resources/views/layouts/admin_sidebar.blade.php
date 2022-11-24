@@ -15,7 +15,7 @@
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
           <li><a href="/admin/siswa/create" class="link-dark rounded">Tambah Siswa</a></li>
           <li><a href="/admin/siswa" class="link-dark rounded">Daftar Siswa</a></li>
-          <li><a href="#" class="link-dark rounded">Data Mutasi</a></li>
+          <li><a href="/admin/mutasi" class="link-dark rounded">Data Mutasi</a></li>
         </ul>
       </div>
     </li>
@@ -48,7 +48,6 @@
       </button>
       <div class="collapse" id="account-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a href="#" class="link-dark rounded">Profil</a></li>
           <li>
             <form action="/keluar" method="post">
               @csrf

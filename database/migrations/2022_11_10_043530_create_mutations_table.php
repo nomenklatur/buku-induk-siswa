@@ -15,14 +15,10 @@ class CreateMutationsTable extends Migration
     {
         Schema::create('mutations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->onDelete('cascade');
-            $table->string('uri')->unique();
-            $table->string('pindah_ke')->nullable();
-            $table->string('alasan_ke')->nullable();
-            $table->string('nomor_ijazah')->nullable();
-            $table->string('tanggal_ijazah')->nullable();
-            $table->string('pindah_dari')->nullable();
-            $table->string('alasan_dari')->nullable();
+            $table->foreignId('user_id');
+            $table->string('tujuan')->nullable();
+            $table->string('alasan')->nullable();
+            $table->string('tanggal_pindah')->nullable();
             $table->timestamps();
         });
     }

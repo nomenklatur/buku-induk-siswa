@@ -51,3 +51,6 @@ Route::get('admin/wali/{guardian}', [Admin::class, 'guardian_form'])->middleware
 Route::put('admin/wali/{guardian}', [Admin::class, 'edit_guardian'])->middleware('admin');
 Route::get('admin/biodata/{biodata}', [Admin::class, 'bio_form'])->middleware('admin');
 Route::put('admin/biodata/{biodata}', [Admin::class, 'edit_bio'])->middleware('admin');
+Route::get('admin/mutasi', [Admin::class, 'list_mutasi'])->middleware('admin');
+Route::get('admin/mutasi/{siswa}', [Admin::class, 'mutasi_form'])->middleware('admin');
+Route::post('admin/mutasi/{siswa}', [Admin::class, 'edit_mutasi'])->middleware('admin');

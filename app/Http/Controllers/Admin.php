@@ -17,7 +17,7 @@ class Admin extends Controller
     public function index(){
         $mutasi = Mutation::latest()->get();
         $murid = User::where('status', 'siswa')->get();
-        $tahun = Year::where('status', 'aktif')->get();
+        $tahun = Year::all();
         $siswa_yatim_piatu = $murid->filter(function($val){ if($val->ayah->status === 'Telah Meninggal' || $val->ibu->status === 'Telah Meninggal'){ return $val;} });
         $siswa_kurang_mampu = $murid->filter(function($val){ return $val->ayah->penghasilan + $val->ibu->penghasilan < 3000000; });
         $siswa = Biodata::latest()->get();
@@ -34,7 +34,7 @@ class Admin extends Controller
             'murid_laki' => $murid->where('jenis_kelamin', 'L')->count(),
             'siswa_kurang_mampu' => $siswa_kurang_mampu->count(),
             'siswa_yatim_piatu' => $siswa_yatim_piatu->count(),
-            'tahun' => $tahun,
+            'tahun' => $tahun->filter(function($value){ return $value->status === 'aktif'; }),
         ]);
     }
 
@@ -152,5 +152,34 @@ class Admin extends Controller
         
         Biodata::where('uri', $biodata->uri)->update($validated);
         return redirect('/dashboard')->with('success', 'Biodata berhasil diperbarui!');
+    }
+
+    public function mutasi_form(User $siswa){
+        return view('admin/info_siswa/mutasi', [
+            'title' => 'Mutasi Siswa',
+            'res'=> $siswa,
+        ]);
+    }
+
+    public function edit_mutasi(Request $request, User $siswa){
+        $validated = $request->validate([
+            'tujuan' => 'required|string|min:8',
+            'alasan' => 'required',
+            'tanggal_pindah' => 'required'
+        ]);
+        Mutation::updateOrCreate(
+            ['user_id' => $siswa->id],
+            $validated
+        );
+
+        return redirect('/dashboard')->with('success', 'Siswa berhasil dimutasi');
+    }
+
+    public function list_mutasi(){
+        return view('admin/info_siswa/list_mutasi', [
+            'title' => 'Daftar Mutasi Siswa',
+            'res' => Mutation::all(),
+            'siswa' => User::all()
+        ]);
     }
 }

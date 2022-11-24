@@ -7,9 +7,10 @@
         <div class="col-lg-8 pt-2 text-center">
           <a href="" class="btn btn-warning btn-sm"><i class="bi bi-printer me-2"></i>Cetak</a>
           <a href="/admin/ayah/{{$res->ayah->uri}}" class="btn btn-success btn-sm"><i class="bi bi-pencil me-2"></i>Ayah</a>
-          <a href="/admin/biodata/{{$res->biodata->uri}}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil me-2"></i>biodata</a>
           <a href="/admin/ibu/{{$res->ibu->uri}}" class="btn btn-sm" style="background-color: pink;"><i class="bi bi-pencil me-2"></i>Ibu</a>
-          <a href="" class="btn btn-sm" style="background-color: skyblue;"><i class="bi bi-arrow-left-right me-2"></i>mutasi</a>
+          <a href="/admin/biodata/{{$res->biodata->uri}}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil me-2"></i>Biodata</a>
+          <a href="/admin/guardian/{{$res->wali->uri}}" class="btn btn-sm" style="background-color: greenyellow"><i class="bi bi-pencil me-2"></i>Wali</a>
+          <a href="/admin/mutasi/{{$res->nisn}}" class="btn btn-sm" style="background-color: skyblue;"><i class="bi bi-arrow-left-right me-2"></i>Mutasi</a>
         </div>
       </div>
       <div class="row mb-3">
@@ -154,16 +155,6 @@
               <td>{{$res->ayah->alamat}}</td>
             </tr>
             <tr>
-              <th>Kota Domisili Ayah</th>
-              <td>:</td>
-              <td>{{$res->ayah->kota}}</td>
-            </tr>
-            <tr>
-              <th>Kecamatan Domisili Ayah</th>
-              <td>:</td>
-              <td>{{$res->ayah->kecamatan}}</td>
-            </tr>
-            <tr>
               <th>Kota Kelahiran Ayah</th>
               <td>:</td>
               <td>{{$res->ayah->tempat_lahir}}</td>
@@ -216,16 +207,6 @@
               <th>Alamat ibu</th>
               <td>:</td>
               <td>{{$res->ibu->alamat}}</td>
-            </tr>
-            <tr>
-              <th>Kota Domisili ibu</th>
-              <td>:</td>
-              <td>{{$res->ibu->kota}}</td>
-            </tr>
-            <tr>
-              <th>Kecamatan Domisili ibu</th>
-              <td>:</td>
-              <td>{{$res->ibu->kecamatan}}</td>
             </tr>
             <tr>
               <th>Kota Kelahiran ibu</th>

@@ -86,6 +86,7 @@ class DatabaseSeeder extends Seeder
             ->has(Biodata::factory()->count(1), 'biodata')
             ->has(Dad::factory()->count(1),'ayah')
             ->has(Mom::factory()->count(1),'ibu')
+            ->has(Guardian::factory()->count(1),'wali')
             ->create();
     }
 }

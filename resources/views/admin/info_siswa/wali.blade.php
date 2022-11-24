@@ -7,7 +7,7 @@
           <h3 class="text-uppercase fw-bold text-center">{{$title}}</h3>
         </div>
       </div>
-      <form action="/data-wali/{{auth()->user()->wali->uri}}" method="post" class="mx-3 my-3">
+      <form action="/admin/wali/{{$res->uri}}" method="post" class="mx-3 my-3">
         @method('put')
         @csrf
       <div class="row">
