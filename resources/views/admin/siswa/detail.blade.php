@@ -5,7 +5,7 @@
       <div class="row justify-content-center">
         <h3 class="text-center"><i class="bi bi-person me-2"></i> Data Induk siswa</h3>
         <div class="col-lg-8 pt-2 text-center">
-          <a href="" class="btn btn-warning btn-sm"><i class="bi bi-printer me-2"></i>Cetak</a>
+          <a href="/admin/print/{{$res->nisn}}" class="btn btn-warning btn-sm"><i class="bi bi-printer me-2"></i>Cetak</a>
           <a href="/admin/ayah/{{$res->ayah->uri}}" class="btn btn-success btn-sm"><i class="bi bi-pencil me-2"></i>Ayah</a>
           <a href="/admin/ibu/{{$res->ibu->uri}}" class="btn btn-sm" style="background-color: pink;"><i class="bi bi-pencil me-2"></i>Ibu</a>
           <a href="/admin/biodata/{{$res->biodata->uri}}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil me-2"></i>Biodata</a>

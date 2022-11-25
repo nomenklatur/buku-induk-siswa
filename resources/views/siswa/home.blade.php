@@ -23,7 +23,7 @@
           @endif
         </div>
         <div class="col-lg-2">
-          <a href="" class="btn btn-warning btn-lg"><i class="bi bi-printer me-2"></i>Cetak</a>
+          <a href="/admin/print/{{auth()->user()->nisn}}" class="btn btn-warning btn-lg"><i class="bi bi-printer me-2"></i>Cetak</a>
         </div>
       </div>
       <div class="row justify-content-center">

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Buku Induk Siswa</title>
+</head>
+<body>
+  <div style="margin: 20px">
+    <h1 style="text-align: center">Buku Induk Siswa</h1>
+    <div style="display: flex">
+      <div style="flex-grow: 2">
+        <h5>Nama : {{$res->nama_lengkap}}</h5>
+        <h6>NISN : {{$res->nisn}}</h6>
+        <h6>NIS : {{$res->nis}}</h6>
+      </div>
+      <div style="flex-grow: 1">
+        <img src="/image/tut wuri handayani.png" alt="" width="120px">
+      </div>
+    </div>
+    <div style="margin-bottom: 30px;">
+      <h3 style="margin-bottom: 20px;">A. Keterangan Siswa</h3>
+      <table style="text-align: left;">
+        <tr>
+          <th>Alamat</th>
+          <td>:</td>
+          <td>{{$res->biodata->alamat}}</td>
+        </tr>
+        <tr>
+          <th>Kota</th>
+          <td>:</td>
+          <td>{{$res->biodata->kota}}</td>
+        </tr>
+        <tr>
+          <th>Sekolah Asal</th>
+          <td>:</td>
+          <td>{{$res->biodata->sekolah_asal}}</td>
+        </tr>
+        <tr>
+          <th>Kecamatan</th>
+          <td>:</td>
+          <td>{{$res->biodata->kecamatan}}</td>
+        </tr>
+        <tr>
+          <th>Kelahiran</th>
+          <td>:</td>
+          <td>{{$res->biodata->tempat_lahir}}</td>
+        </tr>
+        <tr>
+          <th>Tanggal Lahir</th>
+          <td>:</td>
+          <td>{{$res->biodata->tanggal_lahir}}</td>
+        </tr>
+        <tr>
+          <th>Anak ke</th>
+          <td>:</td>
+          <td>{{$res->biodata->anak_ke}}</td>
+        </tr>
+        <tr>
+          <th>Saudara Kandung</th>
+          <td>:</td>
+          <td>{{$res->biodata->jlh_saudara}}</td>
+        </tr>
+        <tr>
+          <th>Saudara Angkat</th>
+          <td>:</td>
+          <td>{{$res->biodata->saudara_angkat}}</td>
+        </tr>
+        <tr>
+          <th>Saudara Tiri</th>
+          <td>:</td>
+          <td>{{$res->biodata->saudara_tiri}}</td>
+        </tr>
+        <tr>
+          <th>Bahasa</th>
+          <td>:</td>
+          <td>{{$res->biodata->bahasa}}</td>
+        </tr>
+        <tr>
+          <th>Agama</th>
+          <td>:</td>
+          <td>{{$res->biodata->agama}}</td>
+        </tr>
+        <tr>
+          <th>Kewarganegaraan</th>
+          <td>:</td>
+          <td>{{$res->biodata->kewarganegaraan}}</td>
+        </tr>
+        <tr>
+          <th>Kegemaran</th>
+          <td>:</td>
+          <td>{{$res->biodata->hobi}}</td>
+        </tr>
+        <tr>
+          <th>Jarak ke sekolah</th>
+          <td>:</td>
+          <td>{{$res->biodata->jarak.' Km'}}</td>
+        </tr>
+        <tr>
+          <th>Nomor HP</th>
+          <td>:</td>
+          <td>{{$res->biodata->nomor_hp}}</td>
+        </tr>
+        <tr>
+          <th>Alamat Email</th>
+          <td>:</td>
+          <td>{{$res->email}}</td>
+        </tr>
+        <tr>
+          <th>Golongan Darah</th>
+          <td>:</td>
+          <td>{{$res->biodata->goldar}}</td>
+        </tr>
+        <tr>
+          <th>Tinggi Badan</th>
+          <td>:</td>
+          <td>{{$res->biodata->tinggi.' Cm'}}</td>
+        </tr>
+        <tr>
+          <th>Berat Badan</th>
+          <td>:</td>
+          <td>{{$res->biodata->berat.' Kg'}}</td>
+        </tr>
+        <tr>
+          <th>Riwayat Penyakit</th>
+          <td>:</td>
+          <td>{{$res->biodata->penyakit}}</td>
+        </tr>
+      </table>
+    </div>
+    <div style="margin-bottom: 30px;">
+      <h3>B. Keterangan Ayah Siswa</h3>
+      <table style="text-align: left;">
+        <tr>
+          <th>Nama Ayah</th>
+          <td>:</td>
+          <td>{{$res->ayah->nama}}</td>
+        </tr>
+        <tr>
+          <th>Alamat Ayah</th>
+          <td>:</td>
+          <td>{{$res->ayah->alamat}}</td>
+        </tr>
+        <tr>
+          <th>Kota Kelahiran Ayah</th>
+          <td>:</td>
+          <td>{{$res->ayah->tempat_lahir}}</td>
+        </tr>
+        <tr>
+          <th>Tanggal Lahir Ayah</th>
+          <td>:</td>
+          <td>{{$res->ayah->tanggal_lahir}}</td>
+        </tr>
+        <tr>
+          <th>Agama Ayah</th>
+          <td>:</td>
+          <td>{{$res->ayah->agama}}</td>
+        </tr>
+        <tr>
+          <th>Kewarganegaraan Ayah</th>
+          <td>:</td>
+          <td>{{$res->ayah->kewarganegaraan}}</td>
+        </tr>
+        <tr>
+          <th>Pekerjaan Ayah</th>
+          <td>:</td>
+          <td>{{$res->ayah->pekerjaan}}</td>
+        </tr>
+        <tr>
+          <th>Pendidikan Terakhir Ayah</th>
+          <td>:</td>
+          <td>{{$res->ayah->pendidikan}}</td>
+        </tr>
+        <tr>
+          <th>Penghasilan perbulan Ayah</th>
+          <td>:</td>
+          <td>{{'Rp. '.number_format($res->ayah->penghasilan, 2,',', '.')}}</td>
+        </tr>
+        <tr>
+          <th>Nomor Telefon</th>
+          <td>:</td>
+          <td>{{$res->ayah->nomor_hp}}</td>
+        </tr>
+      </table>
+    </div>
+    <div style="margin-bottom: 30px">
+      <h3>C. Keterangan Ibu Siswa</h3>
+      <table style="text-align: left;">
+        <tr>
+          <th>Nama ibu</th>
+          <td>:</td>
+          <td>{{$res->ibu->nama}}</td>
+        </tr>
+        <tr>
+          <th>Alamat ibu</th>
+          <td>:</td>
+          <td>{{$res->ibu->alamat}}</td>
+        </tr>
+        <tr>
+          <th>Kota Kelahiran ibu</th>
+          <td>:</td>
+          <td>{{$res->ibu->tempat_lahir}}</td>
+        </tr>
+        <tr>
+          <th>Tanggal Lahir ibu</th>
+          <td>:</td>
+          <td>{{$res->ibu->tanggal_lahir}}</td>
+        </tr>
+        <tr>
+          <th>Agama ibu</th>
+          <td>:</td>
+          <td>{{$res->ibu->agama}}</td>
+        </tr>
+        <tr>
+          <th>Kewarganegaraan ibu</th>
+          <td>:</td>
+          <td>{{$res->ibu->kewarganegaraan}}</td>
+        </tr>
+        <tr>
+          <th>Pekerjaan ibu</th>
+          <td>:</td>
+          <td>{{$res->ibu->pekerjaan}}</td>
+        </tr>
+        <tr>
+          <th>Pendidikan Terakhir ibu</th>
+          <td>:</td>
+          <td>{{$res->ibu->pendidikan}}</td>
+        </tr>
+        <tr>
+          <th>Penghasilan perbulan ibu</th>
+          <td>:</td>
+          <td>{{'Rp. '.number_format($res->ibu->penghasilan, 2,',', '.')}}</td>
+        </tr>
+        <tr>
+          <th>Nomor Telefon</th>
+          <td>:</td>
+          <td>{{$res->ibu->nomor_hp}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

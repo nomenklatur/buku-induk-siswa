@@ -48,7 +48,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $pass = Str::random(10);
         $validated = $request->validate([
             'nama_lengkap' => 'required|max:50',
             'nisn' => 'required|max:16|regex:/[0-9]/',
@@ -63,7 +62,7 @@ class UserController extends Controller
             $validated['foto'] = $request->file('foto')->store('foto-siswa');
         }
         $validated['status'] = 'siswa';
-        $validated['password'] = Hash::make($pass);
+        $validated['password'] = Hash::make('siswa123');
 
         $user = User::create($validated);
         $ayah = $user->ayah()->create(['uri' => Str::random(40)]);

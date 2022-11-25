@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Authorization;
 use App\Http\Controllers\Siswa;
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\Printer;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\TahunController;
@@ -54,3 +55,6 @@ Route::put('admin/biodata/{biodata}', [Admin::class, 'edit_bio'])->middleware('a
 Route::get('admin/mutasi', [Admin::class, 'list_mutasi'])->middleware('admin');
 Route::get('admin/mutasi/{siswa}', [Admin::class, 'mutasi_form'])->middleware('admin');
 Route::post('admin/mutasi/{siswa}', [Admin::class, 'edit_mutasi'])->middleware('admin');
+Route::get('admin/print', [Printer::class, 'daftar_siswa'])->middleware('admin');
+Route::get('admin/print/{siswa}', [Printer::class, 'data_siswa'])->middleware('auth');
+

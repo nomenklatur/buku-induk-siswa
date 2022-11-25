@@ -50,7 +50,7 @@
           <div class="h-100 p-5 shadow bg-white jumbo-bg">
             <h2>Selamat Datang, {{auth()->user()->nama_lengkap}}</h2>
             <p>Sistem ini dibangun sebagai bentuk digitalisasi proses administrasi penyimpanan data induk siswa</p>
-            <a href="" class="btn btn-warning w-30"><i class="bi bi-eye me-3"></i>Buku Induk Siswa</a>
+            <a href="/admin/print" class="btn btn-warning w-30"><i class="bi bi-eye me-3"></i>Buku Induk Siswa</a>
           </div>
         </div>
         <div class="col-lg-4">

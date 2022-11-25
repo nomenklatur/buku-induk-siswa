@@ -15,7 +15,7 @@
           </form>
         </div>
         <div class="col-lg-2">
-          <a href="" class="btn btn-warning"><i class="bi bi-printer me-2"></i>Cetak</a>
+          <a href="/admin/print" class="btn btn-warning"><i class="bi bi-printer me-2"></i>Cetak</a>
         </div>
       </div>
       @if($res->count())
