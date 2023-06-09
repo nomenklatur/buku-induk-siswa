@@ -35,8 +35,8 @@
                   <td>{{$loop->iteration}}</td>
                   <td>{{$item->nama_lengkap}}</td>
                   <td>{{$item->nisn}}</td>
-                  <td><a href="" class="text-decoration-none">{{$item->ayah->nama}}</a></td>
-                  <td><a href="" class="text-decoration-none">{{$item->ibu->nama}}</a></td>
+                  <td><a href="/admin/ayah/{{$item->ayah->uri}}" class="text-decoration-none">{{$item->ayah->nama}}</a></td>
+                  <td><a href="/admin/ibu/{{$item->ibu->uri}}" class="text-decoration-none">{{$item->ibu->nama}}</a></td>
                   <td class="d-flex">
                     <form action="/admin/siswa/{{$item->nisn}}" method="post">
                       @csrf

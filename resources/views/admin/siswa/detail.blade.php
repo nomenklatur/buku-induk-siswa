@@ -9,7 +9,9 @@
           <a href="/admin/ayah/{{$res->ayah->uri}}" class="btn btn-success btn-sm"><i class="bi bi-pencil me-2"></i>Ayah</a>
           <a href="/admin/ibu/{{$res->ibu->uri}}" class="btn btn-sm" style="background-color: pink;"><i class="bi bi-pencil me-2"></i>Ibu</a>
           <a href="/admin/biodata/{{$res->biodata->uri}}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil me-2"></i>Biodata</a>
-          <a href="/admin/guardian/{{$res->wali->uri}}" class="btn btn-sm" style="background-color: greenyellow"><i class="bi bi-pencil me-2"></i>Wali</a>
+          @if ($res->wali)
+            <a href="/admin/wali/{{$res->wali->uri}}" class="btn btn-sm" style="background-color: greenyellow"><i class="bi bi-pencil me-2"></i>Wali</a>
+          @endif
           <a href="/admin/mutasi/{{$res->nisn}}" class="btn btn-sm" style="background-color: skyblue;"><i class="bi bi-arrow-left-right me-2"></i>Mutasi</a>
         </div>
       </div>
